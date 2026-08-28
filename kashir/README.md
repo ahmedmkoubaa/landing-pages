@@ -30,18 +30,20 @@ Then open: **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
-## ✉️ Connecting Form to Your Personal Inbox (Formspree)
+## ✉️ Direct Frontend Email Delivery (No Backend Required)
 
-1. Create a free account at [formspree.io](https://formspree.io)
-2. Click **+ New Form**, name it `Kashir Beta Leads`, and set your personal email as the destination.
-3. Copy your Form ID / Endpoint (e.g. `https://formspree.io/f/mqkrvbze`).
-4. Open [`js/app.js`](file:///Users/ahmed.koubaa/Desktop/playground/landing-pages/kashir/js/app.js) and paste your endpoint into `FORMSPREE_ENDPOINT`:
-   ```javascript
-   const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-   ```
-5. Every store signup with Store Name, Email, WhatsApp Phone (+ country prefix), and Device count will arrive directly in your inbox in real time!
+The lead capture form sends data directly from the frontend to your personal Gmail inbox (`ahmedmou2000@gmail.com`) using FormSubmit:
 
-*(Note: When `FORMSPREE_ENDPOINT` is blank, it runs in local demo simulation mode with instantaneous feedback).*
+- **Configured Destination**: `ahmedmou2000@gmail.com` in [`js/app.js`](file:///Users/ahmed.koubaa/Desktop/playground/landing-pages/kashir/js/app.js#L7-L8).
+- **First Submission Activation**: When you (or a visitor) submit the form for the first time, FormSubmit sends **one activation email** to `ahmedmou2000@gmail.com` with a button: *"Activate Form"*.
+- **Subsequent Submissions**: Once confirmed, every submission arrives instantly in your inbox formatted as a clean table with:
+  - Store / Business Name
+  - Business Email
+  - WhatsApp Phone Number (+ country prefix)
+  - Business Type
+  - Active Device Count
+  - Browser Language (ES / EN)
+  - Submission Timestamp
 
 ---
 
