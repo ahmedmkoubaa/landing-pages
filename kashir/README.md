@@ -6,7 +6,14 @@ High-converting, mobile-first bilingual (EN/ES) "Smoke Test" landing page for **
 
 ## 🚀 Quick Start & Running Locally
 
-### Option A: Docker Compose (Recommended)
+### Option A: Vercel Deployment (Instant Global Hosting)
+- **Root Directory in Vercel Settings**: `kashir` (or leave at root `/`—both work automatically with the provided `vercel.json` configurations).
+- **Framework Preset**: `Other` (Static).
+- Instant global edge deployment with zero configuration.
+
+---
+
+### Option B: Docker Compose (Local Testing)
 From the workspace root or inside `kashir/`:
 ```bash
 docker compose up --build -d
@@ -20,7 +27,7 @@ docker compose down
 
 ---
 
-### Option B: Node.js / npm
+### Option C: Node.js / npm
 ```bash
 cd kashir
 npm install

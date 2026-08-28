@@ -1,11 +1,11 @@
 {
   "name": "kashir-landing-page",
   "version": "1.0.0",
-  "description": "Zero-Hardware POS smoke test landing page with bilingual support and Formspree lead capture",
-  "main": "server.js",
+  "description": "Zero-Hardware POS smoke test landing page with bilingual support and FormSubmit lead capture",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "echo 'Static build ready'"
   },
   "dependencies": {
     "express": "^4.19.2"

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/kashir/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/kashir/$1"
+    }
+  ]
+}
