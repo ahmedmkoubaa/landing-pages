@@ -1,0 +1,232 @@
+/**
+ * Kashir Landing Page Application Logic
+ * Interactive Savings Calculator, Form Validation & Submission, Dynamic Urgency & Smooth Anchors.
+ */
+
+// Configuration: Replace with your actual Formspree endpoint (e.g., "https://formspree.io/f/mqkrvbze")
+// If left blank or default, it operates in frictionless demo simulation mode with instant UX feedback.
+const FORMSPREE_ENDPOINT = ""; 
+
+// Interactive Savings Calculator
+function initCalculator() {
+  const slider = document.getElementById('device-slider');
+  const sliderCount = document.getElementById('calc-device-count');
+  const legacyCostEl = document.getElementById('calc-legacy-cost');
+  const kashirCostEl = document.getElementById('calc-kashir-cost');
+  const savingsAmountEl = document.getElementById('calc-savings-amount');
+
+  if (!slider) return;
+
+  function calculate() {
+    const devices = parseInt(slider.value, 10);
+    sliderCount.textContent = devices;
+
+    // Financial model:
+    // Legacy: Base terminal hardware (€1,500) + €500 per extra terminal + €50/mo per device software & maintenance (€600/yr/device)
+    const legacyHardware = 1500 + (devices - 1) * 650;
+    const legacyAnnualFees = devices * 600;
+    const totalLegacy = legacyHardware + legacyAnnualFees;
+
+    // Kashir: 0€ hardware (bring own device) + 0€ Beta platform fee (or nominal €19/mo flat unlimited)
+    const kashirHardware = 0;
+    const kashirAnnualFees = 0; // 0€ for Beta users
+    const totalKashir = kashirHardware + kashirAnnualFees;
+
+    const savings = totalLegacy - totalKashir;
+
+    legacyCostEl.textContent = `${totalLegacy.toLocaleString()} €`;
+    kashirCostEl.textContent = `${totalKashir.toLocaleString()} €`;
+    savingsAmountEl.textContent = `${savings.toLocaleString()} €`;
+  }
+
+  slider.addEventListener('input', calculate);
+  calculate(); // run initial calculation
+}
+
+// Dynamic Urgency & Countdown Timer
+function initUrgency() {
+  const hoursEl = document.getElementById('timer-hours');
+  const minsEl = document.getElementById('timer-mins');
+  const secsEl = document.getElementById('timer-secs');
+
+  if (!hoursEl || !minsEl || !secsEl) return;
+
+  // Set a rolling 6-hour countdown for high urgency
+  let targetTime = Date.now() + (5 * 3600 + 42 * 60 + 19) * 1000;
+
+  function updateTimer() {
+    const now = Date.now();
+    let diff = Math.max(0, targetTime - now);
+
+    if (diff === 0) {
+      targetTime = Date.now() + 6 * 3600 * 1000; // Reset
+      diff = targetTime - now;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minsEl.textContent = String(mins).padStart(2, '0');
+    secsEl.textContent = String(secs).padStart(2, '0');
+  }
+
+  setInterval(updateTimer, 1000);
+  updateTimer();
+}
+
+// Smooth Scroll & Focus for all CTA buttons
+function initCTAs() {
+  const ctaButtons = document.querySelectorAll('.anchor-cta');
+  const formTarget = document.getElementById('lead-capture-form');
+  const storeNameInput = document.getElementById('store-name');
+
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (formTarget) {
+        formTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Add subtle glow pulse animation
+        formTarget.classList.add('pulse-highlight');
+        setTimeout(() => formTarget.classList.remove('pulse-highlight'), 1800);
+
+        if (storeNameInput) {
+          setTimeout(() => storeNameInput.focus(), 600);
+        }
+      }
+    });
+  });
+}
+
+// Lead Capture Form Submission Handling
+function initLeadForm() {
+  const form = document.getElementById('lead-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitBtnText = document.getElementById('submit-btn-text');
+  const submitSpinner = document.getElementById('submit-spinner');
+  const successModal = document.getElementById('success-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Gather form payload
+    const countryCode = document.getElementById('phone-country').value;
+    const rawPhone = document.getElementById('phone-number').value.trim();
+    const fullPhone = `${countryCode} ${rawPhone}`;
+
+    const formData = {
+      storeName: document.getElementById('store-name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: fullPhone,
+      businessType: document.getElementById('store-type').value,
+      devicesNeeded: document.getElementById('device-count-select').value,
+      submittedAt: new Date().toISOString(),
+      language: document.documentElement.lang || 'es'
+    };
+
+    // UI Loading state
+    if (submitBtn) submitBtn.disabled = true;
+    if (submitSpinner) submitSpinner.classList.remove('hidden');
+    if (submitBtnText) {
+      const isEs = (document.documentElement.lang || 'es') === 'es';
+      submitBtnText.textContent = isEs ? 'Enviando tu solicitud...' : 'Reserving your spot...';
+    }
+
+    try {
+      if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT.startsWith('http')) {
+        // Send real payload to Formspree endpoint
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+          throw new Error('Server returned an error');
+        }
+      } else {
+        // Frictionless simulated network delay for immediate testing
+        await new Promise(resolve => setTimeout(resolve, 800));
+        console.log('⚡ Kashir Lead Captured (Local Demo Mode):', formData);
+      }
+
+      // Show celebratory success modal
+      form.reset();
+      if (successModal) {
+        successModal.classList.remove('hidden');
+      }
+
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert(document.documentElement.lang === 'es' 
+        ? 'Error al enviar los datos. Por favor inténtalo de nuevo o contáctanos directamente.'
+        : 'There was an issue sending your application. Please try again.');
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+      if (submitSpinner) submitSpinner.classList.add('hidden');
+      if (submitBtnText) {
+        const isEs = (document.documentElement.lang || 'es') === 'es';
+        submitBtnText.textContent = isEs ? 'Solicitar Acceso Gratuito a la Beta →' : 'Apply for Free Beta Access →';
+      }
+    }
+  });
+
+  if (modalCloseBtn && successModal) {
+    modalCloseBtn.addEventListener('click', () => {
+      successModal.classList.add('hidden');
+    });
+  }
+}
+
+// FAQ Accordion Interaction
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (question) {
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+        // Close others
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isOpen) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+// Mobile Sticky Floating Bar
+function initMobileStickyBar() {
+  const stickyBar = document.getElementById('mobile-sticky-cta');
+  const heroSection = document.getElementById('hero');
+
+  if (!stickyBar || !heroSection) return;
+
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  });
+}
+
+// DOM Ready initialization
+document.addEventListener('DOMContentLoaded', () => {
+  initCalculator();
+  initUrgency();
+  initCTAs();
+  initLeadForm();
+  initFAQ();
+  initMobileStickyBar();
+});

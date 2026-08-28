@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kashir | Zero-Hardware Cloud POS · Turn Any Phone into a Register</title>
+  <meta name="description" content="Turn any existing phone, tablet, or laptop into a synchronized cash register with tap-to-pay. 0€ hardware cost, infinite registers, and instant VeriFactu compliance.">
+  <meta name="keywords" content="POS system, TPV movil, Zero hardware POS, VeriFactu, Tap to pay, retail point of sale">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Kashir - Zero-Hardware Cloud POS System">
+  <meta property="og:description" content="0€ Hardware POS. Turn any smartphone or tablet into a synchronized checkout register.">
+  <meta property="og:image" content="assets/images/hero-phone-pos.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon Icon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-3.74-1.47-3.74-3.17 0-1.63 1.34-2.78 3.12-3.11V4.5h2.67v1.94c1.47.3 2.7 1.25 2.87 3.01h-1.93c-.15-.96-.86-1.48-2.28-1.48-1.54 0-2.3.71-2.3 1.5 0 .74.45 1.3 2.67 1.83 2.59.62 3.74 1.52 3.74 3.23 0 1.63-1.28 2.86-3.13 3.16z'/></svg>">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Light Effect -->
+  <div class="ambient-glow"></div>
+
+  <!-- Urgency Sticky Top Banner -->
+  <aside class="urgency-banner" aria-label="Urgency Notification">
+    <div class="container">
+      <span class="urgency-badge">🔥 <span data-i18n="urgency.spotsLeft">Solo Quedan <strong>14 Plazas de Beta</strong> para el Trimestre Actual</span></span>
+      <span data-i18n="urgency.timerText">El registro se cerrará al agotar el cupo:</span>
+      <span class="countdown-box" id="timer-box">
+        <span id="timer-hours">05</span>:<span id="timer-mins">42</span>:<span id="timer-secs">19</span>
+      </span>
+    </div>
+  </aside>
+
+  <!-- Sticky Header Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-3.74-1.47-3.74-3.17 0-1.63 1.34-2.78 3.12-3.11V4.5h2.67v1.94c1.47.3 2.7 1.25 2.87 3.01h-1.93c-.15-.96-.86-1.48-2.28-1.48-1.54 0-2.3.71-2.3 1.5 0 .74.45 1.3 2.67 1.83 2.59.62 3.74 1.52 3.74 3.23 0 1.63-1.28 2.86-3.13 3.16z"/></svg>
+        </div>
+        <span>Kashir</span>
+      </a>
+
+      <div class="header-actions">
+        <!-- Language Switcher Toggle Button -->
+        <button id="lang-toggle-btn" class="btn-lang" aria-label="Cambiar idioma">
+          🇬🇧 Switch to English
+        </button>
+
+        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-i18n="nav.cta">
+          Unirse a la Beta Exclusiva
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Copy & CTAs -->
+          <div class="hero-content">
+            <div class="pill-badge" data-i18n="hero.badge">
+              🔥 BETA EXCLUSIVA PARA FUNDADORES · 0€ EN HARDWARE
+            </div>
+
+            <h1 class="hero-title">
+              <span data-i18n="hero.title">Convierte Cualquier Móvil o Tablet en una Caja Registradora.</span>
+              <span class="highlight" data-i18n="hero.titleHighlight">0€ Hardware. Dispositivos Infinitos.</span>
+            </h1>
+
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
+              Deja de gastar más de 2.000€ en pesados terminales TPV y 50€/mes por cada dispositivo extra. Con Kashir, convierte cualquier smartphone, tablet o portátil en una caja de cobro sincronizada en segundos.
+            </p>
+
+            <div class="hero-cta-box">
+              <a href="#lead-capture-form" class="btn-primary anchor-cta" data-i18n="hero.ctaPrimary">
+                Reclamar Plaza Beta (Acceso Gratis de por Vida)
+              </a>
+              <div class="subtext-guarantee" data-i18n="hero.ctaSubtext">
+                ✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma para usuarios Beta
+              </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-num" data-i18n="hero.stat1.value">0€</div>
+                <div class="stat-label" data-i18n="hero.stat1.label">Inversión en Hardware</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" data-i18n="hero.stat2.value">10s</div>
+                <div class="stat-label" data-i18n="hero.stat2.label">Para Añadir Otra Caja</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" data-i18n="hero.stat3.value">100%</div>
+                <div class="stat-label" data-i18n="hero.stat3.label">Nube Sincronizada y Cobro Móvil</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Media Graphic / Phone Demonstration -->
+          <div class="hero-visual">
+            <div class="hero-image-wrapper">
+              <img src="assets/images/hero-phone-pos.jpg" alt="Kashir Smartphone Point of Sale Countertop" loading="eager" width="800" height="450">
+              <div class="hero-floating-card">
+                <div class="pulse-dot"></div>
+                <div class="floating-card-text">
+                  <strong>Tap-to-Pay Activado:</strong> Cobra directamente acercando tarjetas al móvil sin datáfonos adicionales.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Infinite Checkout Showcase (Phone QR Scan Pairing) -->
+    <section class="showcase-section" id="showcase">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag" data-i18n="showcase.tag">DEMOSTRACIÓN DE CAJAS INFINITAS</span>
+          <h2 class="section-title" data-i18n="showcase.title">Convierte Cualquier Dispositivo en Caja en 10 Segundos</h2>
+          <p class="section-subtitle" data-i18n="showcase.subtitle">
+            ¿Tienes hora punta en la tienda? Abre Kashir en el móvil de tu empleado o escanea el código QR del mostrador para habilitar un nuevo punto de cobro al instante sin pagar ni un euro más.
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          <!-- Demonstration Photo: Phone Scanning QR -->
+          <div class="showcase-media">
+            <img src="assets/images/phone-scan-pair.jpg" alt="Escaneo de código QR para conectar una caja registradora adicional" loading="lazy" width="600" height="450">
+          </div>
+
+          <!-- Steps Cards -->
+          <div class="feature-steps">
+            <div class="step-card">
+              <h3 data-i18n="showcase.step1.title">1. Usa los Dispositivos que ya Tienes</h3>
+              <p data-i18n="showcase.step1.desc">Funciona a la perfección en iOS, Android, iPad, Mac y PC con Windows. Olvídate de pantallas táctiles propietarias que cuestan miles de euros.</p>
+            </div>
+
+            <div class="step-card">
+              <h3 data-i18n="showcase.step2.title">2. Escanea el QR para Emparejar al Instante</h3>
+              <p data-i18n="showcase.step2.desc">Apunta la cámara al dispositivo del mostrador. Emparejamiento seguro en tiempo real sin configuraciones técnicas complejas.</p>
+            </div>
+
+            <div class="step-card">
+              <h3 data-i18n="showcase.step3.title">3. Cobra con Contactless y Ticket Digital</h3>
+              <p data-i18n="showcase.step3.desc">Tus clientes acercan su tarjeta o móvil al teléfono de tu dependiente. Envía tickets por WhatsApp o email con 0€ de gasto en rollos de papel térmico.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual Pricing Comparison Matrix & Savings Calculator -->
+    <section class="comparison-section" id="pricing-comparison">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag" data-i18n="comparison.tag">LA REALIDAD FINANCIERA</span>
+          <h2 class="section-title" data-i18n="comparison.title">TPV Tradicional vs. Kashir Zero-Hardware</h2>
+          <p class="section-subtitle" data-i18n="comparison.subtitle">
+            Descubre cuánto dinero ahorra tu negocio desde el primer día.
+          </p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th class="col-feature" data-i18n="comparison.header.feature">Desglose de Costes y Funciones</th>
+                <th class="col-legacy" data-i18n="comparison.header.legacy">TPV Tradicional (Clover, TPV Banco, NCR)</th>
+                <th class="col-kashir" data-i18n="comparison.header.kashir">Kashir Cloud POS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-feature" data-i18n="comparison.row1.name">Coste de Compra del Terminal TPV</td>
+                <td class="col-legacy" data-i18n="comparison.row1.legacy">1.200€ – 3.500€ de pago inicial</td>
+                <td class="col-kashir kashir-highlight-cell" data-i18n="comparison.row1.kashir">0€ (Usa móviles y tablets que ya tienes)</td>
+              </tr>
+              <tr>
+                <td class="col-feature" data-i18n="comparison.row2.name">Caja Adicional / Dispositivo de Empleado</td>
+                <td class="col-legacy" data-i18n="comparison.row2.legacy">+45€ – 80€ / mes por cada caja extra</td>
+                <td class="col-kashir kashir-highlight-cell" data-i18n="comparison.row2.kashir">GRATIS (Dispositivos infinitos incluidos)</td>
+              </tr>
+              <tr>
+                <td class="col-feature" data-i18n="comparison.row3.name">Mantenimiento y Averías de Pantallas</td>
+                <td class="col-legacy" data-i18n="comparison.row3.legacy">+300€ por visita de técnico o recambio</td>
+                <td class="col-kashir kashir-highlight-cell" data-i18n="comparison.row3.kashir">0€ (Cambia a cualquier móvil de respaldo)</td>
+              </tr>
+              <tr>
+                <td class="col-feature" data-i18n="comparison.row4.name">Permanencias y Contratos Abusivos</td>
+                <td class="col-legacy" data-i18n="comparison.row4.legacy">Contratos de permanencia de 24–36 meses</td>
+                <td class="col-kashir kashir-highlight-cell" data-i18n="comparison.row4.kashir">Sin permanencia o Nivel Beta Gratuito</td>
+              </tr>
+              <tr>
+                <td class="col-feature" data-i18n="comparison.row5.name">Tiempo para Abrir Caja Extra en Rebajas</td>
+                <td class="col-legacy" data-i18n="comparison.row5.legacy">Semanas de espera y configuración técnica</td>
+                <td class="col-kashir kashir-highlight-cell" data-i18n="comparison.row5.kashir">10 segundos (Escanear QR y empezar a cobrar)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Interactive ROI / Savings Calculator -->
+        <div class="calculator-card">
+          <div class="text-center">
+            <h3 class="section-title" style="font-size: 1.65rem;" data-i18n="calc.title">Calcula Tu Ahorro Real en Hardware y Cajas</h3>
+            <p class="section-subtitle" style="margin-bottom: 1.5rem;" data-i18n="calc.subtitle">Mueve la barra para ver cuánto dinero ahorrará tu tienda durante el primer año con Kashir.</p>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-header">
+              <label for="device-slider" data-i18n="calc.sliderLabel">Número de cajas registradoras / dependientes en tu tienda:</label>
+              <div class="device-badge"><span id="calc-device-count">3</span> <span data-i18n="calc.terminals">Cajas de Cobro</span></div>
+            </div>
+            <input type="range" id="device-slider" class="calc-slider" min="1" max="10" value="3" aria-label="Cantidad de cajas de cobro">
+          </div>
+
+          <div class="calc-results-grid">
+            <div class="calc-box">
+              <div class="label" data-i18n="calc.legacyCost">Coste Estimado TPV Tradicional (Año 1):</div>
+              <div class="val-legacy" id="calc-legacy-cost">4.600 €</div>
+            </div>
+            <div class="calc-box">
+              <div class="label" data-i18n="calc.kashirCost">Coste con Kashir (Año 1):</div>
+              <div class="val-kashir" id="calc-kashir-cost">0 €</div>
+            </div>
+            <div class="calc-box highlight-savings">
+              <div class="label" data-i18n="calc.savingsLabel">Ahorro Total Estimado:</div>
+              <div class="val-savings" id="calc-savings-amount">4.600 €</div>
+            </div>
+          </div>
+
+          <div class="text-center" style="margin-top: 1.75rem;">
+            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-i18n="nav.cta">Unirse a la Beta Exclusiva</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Spain / VeriFactu Regulatory Leverage Section -->
+    <section class="legal-section" id="compliance">
+      <div class="container">
+        <div class="legal-card">
+          <div class="legal-grid">
+            <div>
+              <span class="section-tag" data-i18n="legal.tag">NORMATIVA LEGAL Y LEY ANTIFRAUDE</span>
+              <h2 class="section-title" style="font-size: 1.85rem;" data-i18n="legal.title">100% Adaptado a la Ley VeriFactu y Factura Electrónica</h2>
+              <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.975rem;" data-i18n="legal.subtitle">
+                No gastes más de 1.500€ en renovar tus máquinas registradoras por la nueva legislación española. Kashir nace en la nube y cumple automáticamente con todos los requisitos de la Agencia Tributaria (AEAT).
+              </p>
+            </div>
+            <div>
+              <ul class="legal-list">
+                <li data-i18n="legal.bullet1"><strong>Facturación VeriFactu Automática:</strong> Generación instantánea de códigos QR en cada ticket según los estándares de la AEAT.</li>
+                <li data-i18n="legal.bullet2"><strong>Cero Gastos en Renovación de Maquinaria:</strong> Actualizaciones automáticas en la nube sin necesidad de comprar nuevos datáfonos certificados.</li>
+                <li data-i18n="legal.bullet3"><strong>Trazabilidad e Inalterabilidad:</strong> Registro encadenado e inmutable para proteger a tu negocio de sanciones e inspecciones.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- High-Converting Lead Capture Form Section -->
+    <section class="lead-section" id="lead-capture-form">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag" data-i18n="form.tag">SOLICITUD DE ACCESO A LA BETA</span>
+          <h2 class="section-title" data-i18n="form.title">Reserva Tu Plaza en la Beta de Acceso Anticipado</h2>
+          <p class="section-subtitle" data-i18n="form.subtitle">
+            Únete al grupo exclusivo de comerciantes que probarán Kashir antes del lanzamiento público. Disfruta de soporte directo con los fundadores y 0% de comisiones para siempre.
+          </p>
+        </div>
+
+        <div class="form-wrapper">
+          <div class="text-center">
+            <span class="form-badge" data-i18n="form.badge">🔥 36 solicitudes reservadas esta semana · Quedan 14 plazas</span>
+          </div>
+
+          <form id="lead-form" novalidate>
+            <!-- Store Name -->
+            <div class="form-group">
+              <label for="store-name" class="form-label" data-i18n="form.labelStoreName">Nombre de tu Tienda / Negocio *</label>
+              <input type="text" id="store-name" class="form-input" required placeholder="Ej. Moda Bella, Cafetería San Juan, Barbería" data-i18n-placeholder="form.placeholderStoreName">
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email" class="form-label" data-i18n="form.labelEmail">Correo Electrónico de Contacto *</label>
+              <input type="email" id="email" class="form-input" required placeholder="tuemail@tunegocio.com" data-i18n-placeholder="form.placeholderEmail">
+            </div>
+
+            <!-- International Phone Input -->
+            <div class="form-group">
+              <label for="phone-number" class="form-label" data-i18n="form.labelPhone">Teléfono Móvil (WhatsApp para enviarte el enlace) *</label>
+              <div class="phone-input-group">
+                <select id="phone-country" class="form-select" aria-label="Prefijo de país">
+                  <option value="+34">🇪🇸 +34 (ES)</option>
+                  <option value="+1">🇺🇸 +1 (US/CA)</option>
+                  <option value="+44">🇬🇧 +44 (UK)</option>
+                  <option value="+33">🇫🇷 +33 (FR)</option>
+                  <option value="+49">🇩🇪 +49 (DE)</option>
+                  <option value="+39">🇮🇹 +39 (IT)</option>
+                  <option value="+351">🇵🇹 +351 (PT)</option>
+                  <option value="+52">🇲🇽 +52 (MX)</option>
+                  <option value="+54">🇦🇷 +54 (AR)</option>
+                  <option value="+57">🇨🇴 +57 (CO)</option>
+                </select>
+                <input type="tel" id="phone-number" class="form-input" required placeholder="612 345 678" data-i18n-placeholder="form.placeholderPhone">
+              </div>
+            </div>
+
+            <!-- Store Type Selection -->
+            <div class="form-group">
+              <label for="store-type" class="form-label" data-i18n="form.labelStoreType">¿Qué tipo de negocio gestionas?</label>
+              <select id="store-type" class="form-select">
+                <option value="retail" data-i18n="form.optionRetail">Tienda / Comercio Minorista / Moda</option>
+                <option value="hospitality" data-i18n="form.optionHospitality">Cafetería / Bar / Restauración</option>
+                <option value="services" data-i18n="form.optionServices">Servicios / Peluquería / Estética</option>
+                <option value="other" data-i18n="form.optionOther">Otro tipo de comercio</option>
+              </select>
+            </div>
+
+            <!-- Intended Devices -->
+            <div class="form-group">
+              <label for="device-count-select" class="form-label" data-i18n="form.labelDevices">¿Cuántos dispositivos o cajas necesitas usar?</label>
+              <select id="device-count-select" class="form-select">
+                <option value="1-2" data-i18n="form.optionDev1">1 - 2 Dispositivos (Mostrador pequeño)</option>
+                <option value="3-5" data-i18n="form.optionDev2">3 - 5 Dispositivos (Dependientes en tienda)</option>
+                <option value="6+" data-i18n="form.optionDev3">6+ Dispositivos (Alto volumen / Varios locales)</option>
+              </select>
+            </div>
+
+            <!-- Submit CTA -->
+            <button type="submit" id="submit-btn" class="btn-primary form-submit-btn">
+              <span id="submit-spinner" class="spinner hidden"></span>
+              <span id="submit-btn-text" data-i18n="form.submitBtn">Solicitar Acceso Gratuito a la Beta →</span>
+            </button>
+
+            <div class="form-security-note" data-i18n="form.security">
+              🔒 100% libre de spam. Solo te contactaremos para enviarte el acceso a la Beta privada.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Tap to Pay Visual Feature Highlight -->
+    <section style="padding: 2rem 0 4rem;">
+      <div class="container">
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); position: relative;">
+          <img src="assets/images/tap-to-pay-checkout.jpg" alt="Customer tapping contactless card to pay directly on staff smartphone" loading="lazy" style="width: 100%; height: auto; display: block; max-height: 480px; object-fit: cover;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(7,9,14,0.95) 0%, transparent 100%); padding: 2.5rem 1.5rem 1.5rem;">
+            <div style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: #ffffff;">Cobra sin datáfonos ni comisiones ocultas de terminal</div>
+            <div style="color: var(--text-secondary); font-size: 0.95rem;">Acepta Visa, Mastercard, Apple Pay y Google Pay directamente en tu propio móvil.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag" data-i18n="faq.tag">PREGUNTAS FRECUENTES</span>
+          <h2 class="section-title" data-i18n="faq.title">Todo lo que necesitas saber sobre Kashir</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span data-i18n="faq.q1">¿Realmente no necesito comprar ningún aparato?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq.a1">¡Exacto! Kashir funciona en cualquier móvil iPhone, Android, tablet iPad o portátil que ya tengas. No requieres datáfonos caros ni pantallas especiales.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q2">¿Cómo funciona el cobro contactless desde el móvil?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq.a2">Los teléfonos actuales cuentan con antena NFC. Kashir utiliza la tecnología Tap to Pay para que el cliente solo tenga que acercar su tarjeta o móvil a la parte trasera de tu teléfono para cobrar al instante.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q3">¿Pueden cobrar varios dependientes al mismo tiempo?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq.a3">Sí, puedes conectar dispositivos ilimitados en 10 segundos escaneando un código QR. Todas las ventas y el stock se sincronizan en tiempo real en la nube.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q4">¿Qué ventajas tengo al entrar en la Beta?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq.a4">Los miembros de la Beta tienen acceso vitalicio sin cuotas de software de plataforma, soporte prioritario directo con el equipo técnico y línea directa para solicitar funciones a medida.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Mobile Bottom CTA Bar -->
+  <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+    <div class="sticky-cta-text">
+      🔥 <span data-i18n="nav.scarcityBadge">Beta Limitada: Quedan 14/50 Plazas</span>
+    </div>
+    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-i18n="nav.cta">
+      Unirse a la Beta
+    </a>
+  </div>
+
+  <!-- Celebratory Success Modal -->
+  <div id="success-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+      <h3 class="modal-title" data-i18n="form.successTitle">¡Tu Plaza en la Beta VIP está Reservada!</h3>
+      <p class="modal-desc" data-i18n="form.successDesc">
+        Gracias por registrarte. Hemos guardado tu plaza y te hemos enviado una confirmación. Nuestro equipo fundador te contactará por WhatsApp con el enlace privado para probar Kashir.
+      </p>
+      <button id="modal-close-btn" class="btn-primary" style="width: 100%;">
+        Entendido / Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer.rights">© 2026 Kashir TPV. Todos los derechos reservados. Punto de Venta en la Nube Zero-Hardware.</p>
+      <p data-i18n="footer.disclaimer">Prototipo de validación de mercado para convocatoria de cohorte Beta.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
