@@ -87,7 +87,7 @@ function initCTAs() {
       e.preventDefault();
       if (formTarget) {
         formTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
+
         // Add subtle glow pulse animation
         formTarget.classList.add('pulse-highlight');
         setTimeout(() => formTarget.classList.remove('pulse-highlight'), 1800);
@@ -170,7 +170,7 @@ function initLeadForm() {
       // Trigger Google Ads Conversion Tracking
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-952948429',
+          'send_to': 'AW-952948429/JXh1CLzT_ukcEM2ts8YD',
           'event_category': 'Beta Sign Up',
           'event_label': storeName,
           'value': 1.0,
@@ -181,7 +181,6 @@ function initLeadForm() {
           'event_label': storeName
         });
       }
-
       // Show celebratory confirmation modal
       form.reset();
       if (successModal) {
