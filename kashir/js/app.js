@@ -5,7 +5,7 @@
 
 // Direct Frontend-to-Inbox Email Endpoint (No backend required)
 const LEAD_DESTINATION_EMAIL = "ahmedmou2000@gmail.com";
-const SUBMISSION_ENDPOINT = `https://formsubmit.co/ajax/${LEAD_DESTINATION_EMAIL}`;
+const SUBMISSION_ENDPOINT = 'https://formsubmit.co/ajax/2041cb39dda0eea2cba867fafaac9238';
 
 // Interactive Savings Calculator
 function initCalculator() {
