@@ -167,6 +167,21 @@ function initLeadForm() {
 
       console.log('⚡ Lead successfully sent to:', LEAD_DESTINATION_EMAIL, emailPayload);
 
+      // Trigger Google Ads Conversion Tracking
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-952948429',
+          'event_category': 'Beta Sign Up',
+          'event_label': storeName,
+          'value': 1.0,
+          'currency': 'EUR'
+        });
+        window.gtag('event', 'generate_lead', {
+          'event_category': 'Beta Sign Up',
+          'event_label': storeName
+        });
+      }
+
       // Show celebratory confirmation modal
       form.reset();
       if (successModal) {
