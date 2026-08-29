@@ -216,13 +216,13 @@ function initFAQ() {
 // Mobile Sticky Floating Bar
 function initMobileStickyBar() {
   const stickyBar = document.getElementById('mobile-sticky-cta');
-  const heroSection = document.getElementById('hero');
+  const topSection = document.getElementById('showcase') || document.getElementById('hero');
 
-  if (!stickyBar || !heroSection) return;
+  if (!stickyBar || !topSection) return;
 
   window.addEventListener('scroll', () => {
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    if (heroBottom < 0) {
+    const topBottom = topSection.getBoundingClientRect().bottom;
+    if (topBottom < 0) {
       stickyBar.classList.add('visible');
     } else {
       stickyBar.classList.remove('visible');

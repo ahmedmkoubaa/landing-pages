@@ -27,8 +27,8 @@
   <!-- Urgency Sticky Top Banner -->
   <aside class="urgency-banner" aria-label="Urgency Notification">
     <div class="container">
-      <span class="urgency-badge">🔥 <span data-i18n="urgency.spotsLeft">Solo Quedan <strong>14 Plazas de Beta</strong> para el Trimestre Actual</span></span>
-      <span data-i18n="urgency.timerText">El registro se cerrará al agotar el cupo:</span>
+      <span class="urgency-badge">🔥 <span data-i18n="urgency.spotsLeft">Solo Quedan <strong>14 Plazas de Beta</strong></span></span>
+      <span data-i18n="urgency.timerText">El registro se cerrará pronto:</span>
       <span class="countdown-box" id="timer-box">
         <span id="timer-hours">05</span>:<span id="timer-mins">42</span>:<span id="timer-secs">19</span>
       </span>
@@ -39,109 +39,54 @@
   <header class="header">
     <div class="container header-container">
       <a href="#" class="brand-logo">
-        <img src="assets/icons/icon-192.png" alt="Kashir Logo" class="brand-logo-img" width="44" height="44">
+        <img src="assets/icons/icon-192.png" alt="Kashir Logo" class="brand-logo-img" width="36" height="36">
         <span>Kashir</span>
       </a>
 
       <div class="header-actions">
-        <!-- Language Switcher Toggle Button -->
-        <button id="lang-toggle-btn" class="btn-lang" aria-label="Cambiar idioma">
-          🇬🇧 Switch to English
-        </button>
+        <!-- Language Switcher Flag Dropdown (Only Flag) -->
+        <select id="lang-select" class="lang-flag-select" aria-label="Seleccionar idioma">
+          <option value="es">🇪🇸</option>
+          <option value="en">🇬🇧</option>
+        </select>
 
         <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-i18n="nav.cta">
-          Unirse a la Beta Exclusiva
+          Entrar a la Beta
         </a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <!-- Direct Main Section: Scan, Calculate, Invoice -->
+    <section class="showcase-section" id="showcase" style="padding-top: 2.5rem;">
       <div class="container">
-        <div class="hero-grid">
-          
-          <!-- Hero Copy & CTAs -->
-          <div class="hero-content">
-            <div class="pill-badge" data-i18n="hero.badge">
-              🔥 BETA EXCLUSIVA PARA FUNDADORES · 0€ EN HARDWARE
-            </div>
-
-            <h1 class="hero-title">
-              <span data-i18n="hero.title">Convierte Cualquier Móvil o Tablet en una Caja Registradora.</span>
-              <span class="highlight" data-i18n="hero.titleHighlight">0€ en Aparatos. Facturas y Cuentas al Instante.</span>
-            </h1>
-
-            <p class="hero-subtitle" data-i18n="hero.subtitle">
-              Deja de gastar más de 2.000€ en pesadas cajas registradoras y cuotas mensuales. Con Kashir, escanea productos con la cámara de tu móvil, calcula la cuenta sin hacer operaciones de cabeza y emite facturas y tickets digitales legales en un segundo.
-            </p>
-
-            <div class="hero-cta-box">
-              <a href="#lead-capture-form" class="btn-primary anchor-cta" data-i18n="hero.ctaPrimary">
-                Reclamar Plaza Beta (Acceso Gratis de por Vida)
-              </a>
-              <div class="subtext-guarantee" data-i18n="hero.ctaSubtext">
-                ✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma para usuarios Beta
-              </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="hero-stats">
-              <div class="stat-item">
-                <div class="stat-num" data-i18n="hero.stat1.value">0€</div>
-                <div class="stat-label" data-i18n="hero.stat1.label">Inversión en Máquinas</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-num" data-i18n="hero.stat2.value">1 Seg</div>
-                <div class="stat-label" data-i18n="hero.stat2.label">Para Escanear y Añadir Producto</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-num" data-i18n="hero.stat3.value">100%</div>
-                <div class="stat-label" data-i18n="hero.stat3.label">Cero Cuentas a Mano y Sincronizado</div>
-              </div>
-            </div>
-
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <div class="pill-badge" data-i18n="hero.badge">
+            🔥 0€ EN MÁQUINAS · BETA PARA FUNDADORES
           </div>
-
-          <!-- Hero Media Graphic / Phone Billing Screen Demonstration -->
-          <div class="hero-visual">
-            <div class="hero-image-wrapper">
-              <img src="assets/images/hero-phone-pos.jpg" alt="Kashir aplicación de caja registradora en móvil mostrando lista de productos y factura" loading="eager" width="800" height="450">
-              <div class="hero-floating-card">
-                <div class="pulse-dot"></div>
-                <div class="floating-card-text">
-                  <strong>Cuenta Clara al Instante:</strong> La aplicación suma los artículos, calcula el IVA automáticamente y genera la factura legal.
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Infinite Checkout Showcase (Barcode Scan & Auto Math) -->
-    <section class="showcase-section" id="showcase">
-      <div class="container">
-        <div class="text-center">
-          <span class="section-tag" data-i18n="showcase.tag">GESTIÓN FÁCIL PARA TU COMERCIO</span>
-          <h2 class="section-title" data-i18n="showcase.title">Escanea, Calcula y Emite la Factura al Instante</h2>
-          <p class="section-subtitle" data-i18n="showcase.subtitle">
-            Pensado especialmente para dueños de tiendas y pequeños negocios. Letras grandes, botones claros y tan fácil de usar que no requiere ningún conocimiento técnico.
+          <h1 class="section-title" data-i18n="showcase.title">Escanea, Calcula y Emite la Factura al Instante</h1>
+          <p class="section-subtitle" style="margin-bottom: 1.5rem;" data-i18n="showcase.subtitle">
+            Pensado especialmente para dueños de tiendas y pequeños negocios. Botones claros y tan fácil de usar que no requiere ningún conocimiento técnico.
           </p>
         </div>
 
         <div class="showcase-grid">
-          <!-- Demonstration Photo: Phone Scanning Barcode on Product -->
+          <!-- Demonstration Photo: Phone on Counter / Scanning Barcode -->
           <div class="showcase-media">
-            <img src="assets/images/phone-scan-pair.jpg" alt="Escanear código de barras de producto con la cámara del móvil" loading="lazy" width="600" height="450">
+            <img src="assets/images/hero-phone-pos.jpg" alt="Kashir aplicación de caja registradora en móvil mostrando lista de productos y factura" loading="eager" width="700" height="450">
+            <div class="hero-floating-card">
+              <div class="pulse-dot"></div>
+              <div class="floating-card-text">
+                <strong>Cuenta Clara al Instante:</strong> La aplicación suma los artículos, calcula el IVA automáticamente y genera la factura legal.
+              </div>
+            </div>
           </div>
 
-          <!-- Steps Cards (Points 1, 2, 3) -->
+          <!-- Steps Cards (Points 1, 2, 3 + Primary CTA) -->
           <div class="feature-steps">
             <div class="step-card">
-              <h3 data-i18n="showcase.step1.title">1. Usa los Dispositivos que ya Tienes</h3>
+              <h3 data-i18n="showcase.step1.title">1. Usa el Móvil que ya Tienes</h3>
               <p data-i18n="showcase.step1.desc">Funciona a la perfección en cualquier móvil Android, iPhone, tablet iPad o portátil. Olvídate de pantallas táctiles propietarias que cuestan miles de euros.</p>
             </div>
 
@@ -153,6 +98,15 @@
             <div class="step-card">
               <h3 data-i18n="showcase.step3.title">3. Acceso al Inventario sin Registrar a Mano</h3>
               <p data-i18n="showcase.step3.desc">Acceso directo a todo tu catálogo de productos. Evita registrar todos los productos a mano cada vez y encuentra cualquier artículo con su precio y tipo de IVA en un solo clic.</p>
+            </div>
+
+            <div style="margin-top: 0.5rem;">
+              <a href="#lead-capture-form" class="btn-primary anchor-cta" style="width: 100%;" data-i18n="hero.ctaPrimary">
+                Probar Gratis la Beta (Acceso 0€ de por Vida)
+              </a>
+              <div class="subtext-guarantee text-center" data-i18n="hero.ctaSubtext">
+                ✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma
+              </div>
             </div>
           </div>
         </div>
@@ -214,13 +168,13 @@
         <!-- Interactive ROI / Savings Calculator -->
         <div class="calculator-card">
           <div class="text-center">
-            <h3 class="section-title" style="font-size: 1.85rem;" data-i18n="calc.title">Calcula Tu Ahorro Real en Máquinas y Cajas</h3>
-            <p class="section-subtitle" style="margin-bottom: 1.5rem;" data-i18n="calc.subtitle">Mueve la barra para ver cuánto dinero ahorrará tu tienda durante el primer año con Kashir.</p>
+            <h3 class="section-title" style="font-size: 1.55rem;" data-i18n="calc.title">Calcula Tu Ahorro Real en Máquinas y Cajas</h3>
+            <p class="section-subtitle" style="margin-bottom: 1.25rem;" data-i18n="calc.subtitle">Mueve la barra para ver cuánto dinero ahorrará tu tienda durante el primer año con Kashir.</p>
           </div>
 
           <div class="slider-container">
             <div class="slider-header">
-              <label for="device-slider" data-i18n="calc.sliderLabel">Número de cajas registradoras / dependientes en tu tienda:</label>
+              <label for="device-slider" data-i18n="calc.sliderLabel">Número de cajas registradoras en tu tienda:</label>
               <div class="device-badge"><span id="calc-device-count">3</span> <span data-i18n="calc.terminals">Cajas de Cobro</span></div>
             </div>
             <input type="range" id="device-slider" class="calc-slider" min="1" max="10" value="3" aria-label="Cantidad de cajas registradoras">
@@ -241,8 +195,8 @@
             </div>
           </div>
 
-          <div class="text-center" style="margin-top: 2rem;">
-            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-i18n="nav.cta">Unirse a la Beta Exclusiva</a>
+          <div class="text-center" style="margin-top: 1.75rem;">
+            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-i18n="nav.cta">Entrar a la Beta</a>
           </div>
         </div>
 
@@ -256,8 +210,8 @@
           <div class="legal-grid">
             <div>
               <span class="section-tag" data-i18n="legal.tag">NORMATIVA LEGAL Y LEY ANTIFRAUDE</span>
-              <h2 class="section-title" style="font-size: 2.1rem;" data-i18n="legal.title">100% Adaptado a la Ley VeriFactu y Factura Electrónica</h2>
-              <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.1rem; line-height: 1.7;" data-i18n="legal.subtitle">
+              <h2 class="section-title" style="font-size: 1.85rem;" data-i18n="legal.title">100% Adaptado a la Ley VeriFactu y Factura Electrónica</h2>
+              <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.6;" data-i18n="legal.subtitle">
                 No gastes más de 1.500€ en renovar tus máquinas registradoras por la nueva legislación española. Kashir nace en la nube y cumple automáticamente con todos los requisitos de la Agencia Tributaria (AEAT) sin comprar ningún aparato nuevo.
               </p>
             </div>
@@ -274,13 +228,13 @@
     </section>
 
     <!-- Visual Feature Highlight: Instant Inventory & Product Catalog -->
-    <section style="padding: 3rem 0 5rem; background: #ffffff;">
+    <section style="padding: 2.5rem 0 4rem; background: #ffffff;">
       <div class="container">
-        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-subtle); position: relative; box-shadow: var(--shadow-lg);">
-          <img src="assets/images/inventory-management.jpg" alt="Comerciante gestionando inventario y productos con la app Kashir en tablet" loading="lazy" style="width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover;">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 65%, transparent 100%); padding: 3rem 2rem 2rem;">
-            <div style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; color: var(--text-primary);">Todos tus productos e inventario ordenados sin esfuerzo</div>
-            <div style="color: var(--text-secondary); font-size: 1.15rem; margin-top: 0.25rem;">Encuentra cualquier artículo en pantalla, añade stock en un segundo y evita apuntar en libretas o calcular a mano.</div>
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--border-subtle); position: relative; box-shadow: var(--shadow-lg);">
+          <img src="assets/images/inventory-management.jpg" alt="Comerciante gestionando inventario y productos con la app Kashir en tablet" loading="lazy" style="width: 100%; height: auto; display: block; max-height: 480px; object-fit: cover;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.85) 65%, transparent 100%); padding: 2.5rem 1.5rem 1.5rem;">
+            <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">Todos tus productos e inventario ordenados sin esfuerzo</div>
+            <div style="color: var(--text-secondary); font-size: 1rem; margin-top: 0.25rem;">Encuentra cualquier artículo en pantalla, añade stock en un segundo y evita apuntar en libretas o calcular a mano.</div>
           </div>
         </div>
       </div>
@@ -406,7 +360,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="faq.a3">Tendrás todo tu catálogo en pantalla con fotos, precios y buscador rápido. Te ahorra tener que memorizar precios o apuntar productos a mano en una libreta.</p>
+              <p data-i18n="faq.a4">Tendrás todo tu catálogo en pantalla con fotos, precios y buscador rápido. Te ahorra tener que memorizar precios o apuntar productos a mano en una libreta.</p>
             </div>
           </div>
 
@@ -432,14 +386,14 @@
       🔥 <span data-i18n="nav.scarcityBadge">Beta Limitada: Quedan 14/50 Plazas</span>
     </div>
     <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-i18n="nav.cta">
-      Unirse a la Beta
+      Entrar a la Beta
     </a>
   </div>
 
   <!-- Celebratory Success Modal -->
   <div id="success-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <div style="font-size: 3.5rem; margin-bottom: 1rem;">🎉</div>
+      <div style="font-size: 3rem; margin-bottom: 0.85rem;">🎉</div>
       <h3 class="modal-title" data-i18n="form.successTitle">¡Tu Plaza en la Beta VIP está Reservada!</h3>
       <p class="modal-desc" data-i18n="form.successDesc">
         Gracias por registrarte. Hemos guardado tu plaza y te hemos enviado una confirmación. Nuestro equipo fundador te contactará por WhatsApp con el enlace privado para probar Kashir.

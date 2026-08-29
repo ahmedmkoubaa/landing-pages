@@ -1,54 +1,47 @@
 /**
  * Kashir Smoke Test Landing Page - i18n Translation Dictionary
- * Senior-friendly clear language, automatic browser language detection,
+ * Automatic browser language detection, flag dropdown switcher,
  * and conditional VeriFactu compliance display.
  */
 
 const translations = {
   en: {
     // Navigation
-    "nav.tagline": "Zero-Hardware Cash Register & Digital Invoicing for Local Stores",
-    "nav.scarcityBadge": "⚡ Limited Beta: 14/50 Store Spots Left",
-    "nav.cta": "Join Exclusive Beta",
-    "lang.toggle": "🇪🇸 Ver en Español",
+    "nav.tagline": "Zero-Hardware Cash Register for Local Stores",
+    "nav.scarcityBadge": "⚡ Limited Beta: 14/50 Spots Left",
+    "nav.cta": "Join Beta",
 
-    // Hero Section
-    "hero.badge": "🔥 EXCLUSIVE FOUNDER BETA · 0€ IN HARDWARE",
+    // Hero Section (Laser-focused, punchy)
+    "hero.badge": "🔥 0€ HARDWARE · FOUNDER BETA",
     "hero.title": "Turn Any Phone or Tablet Into a Smart Cash Register.",
     "hero.titleHighlight": "0€ Hardware. Instant Scanned Invoicing.",
-    "hero.subtitle": "Stop paying €2,000+ for bulky cash register machines and monthly terminal fees. With Kashir, scan product barcodes with your phone camera, compile bills instantly with zero manual math, and issue compliant digital receipts.",
-    "hero.ctaPrimary": "Claim Your Beta Spot (Free Forever Access)",
+    "hero.subtitle": "Scan product barcodes with your phone camera, compile itemized bills with zero manual math, and issue compliant digital receipts in seconds.",
+    "hero.ctaPrimary": "Try Beta for Free (Lifetime 0€ Access)",
     "hero.ctaSubtext": "✓ No credit card required &nbsp;•&nbsp; ✓ 0€ Setup cost &nbsp;•&nbsp; ✓ 0% platform fee for Beta users",
-    "hero.stat1.value": "0€",
-    "hero.stat1.label": "Hardware Investment",
-    "hero.stat2.value": "1 Sec",
-    "hero.stat2.label": "To Scan & Add Any Product",
-    "hero.stat3.value": "100%",
-    "hero.stat3.label": "Zero Manual Math & Cloud Synced",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "Founder Beta Access is Strictly Capped",
-    "urgency.desc": "We are onboarding only 50 visionary store owners to test and shape the easiest zero-hardware register. Once filled, standard pricing applies.",
-    "urgency.spotsLeft": "Only <strong>14 Beta Spots</strong> Remaining for Q3",
-    "urgency.timerText": "Registration closes when spots run out:",
+    "urgency.desc": "We are onboarding only 50 visionary store owners to test and shape the easiest zero-hardware register.",
+    "urgency.spotsLeft": "Only <strong>14 Beta Spots</strong> Remaining",
+    "urgency.timerText": "Registration closes soon:",
 
-    // Interactive Showcase: Infinite Checkout & Camera Scanning
-    "showcase.tag": "EFFORTLESS STORE OPERATIONS",
+    // Interactive Showcase: Camera Scanning & Auto Math
+    "showcase.tag": "SIMPLE STORE OPERATIONS",
     "showcase.title": "Scan, Calculate, and Invoice in Seconds",
-    "showcase.subtitle": "Designed specifically for local retail and neighborhood businesses. No technical skills required—if you know how to use a phone, you can run Kashir.",
-    "showcase.step1.title": "1. Use Any Phone or Tablet You Already Own",
-    "showcase.step1.desc": "Works smoothly on iOS, Android, iPad, Mac, and Windows PC. No expensive proprietary touchscreens or technician installations.",
-    "showcase.step2.title": "2. Scan Barcodes or QRs & Instant Bill Calculation",
+    "showcase.subtitle": "Built for local store owners. Clean, clear buttons and so intuitive that anyone can start using it immediately.",
+    "showcase.step1.title": "1. Use Any Phone You Already Own",
+    "showcase.step1.desc": "Works smoothly on iOS, Android, iPad, Mac, and Windows PC. No expensive proprietary screens or technician visits.",
+    "showcase.step2.title": "2. Scan Barcodes & Instant Bill Calculation",
     "showcase.step2.desc": "Scan products with barcodes or QR codes using your phone camera and generate invoices instantly without doing any manual math or mental calculations.",
     "showcase.step3.title": "3. Direct Inventory Access & No Manual Data Entry",
     "showcase.step3.desc": "Instant access to your full store inventory. Avoid registering products by hand every time and find any item with prices and taxes in a single tap.",
 
     // Visual Pricing Comparison Matrix
     "comparison.tag": "THE FINANCIAL REALITY",
-    "comparison.title": "Legacy POS Machines vs. Kashir Digital Register",
+    "comparison.title": "Legacy POS Machine vs. Kashir Digital",
     "comparison.subtitle": "See how much money stays in your business bank account from Day 1.",
     "comparison.header.feature": "Feature & Cost Breakdown",
-    "comparison.header.legacy": "Legacy POS Machine (Clover, NCR, Bank POS)",
+    "comparison.header.legacy": "Legacy POS Machine (Clover, Bank POS)",
     "comparison.header.kashir": "Kashir Cloud Register",
     
     "comparison.row1.name": "Hardware Register Cost",
@@ -60,7 +53,7 @@ const translations = {
     "comparison.row2.kashir": "FREE (Infinite devices included)",
 
     "comparison.row3.name": "Barcode Scanning & Auto-Math",
-    "comparison.row3.legacy": "Requires €200+ handheld laser scanner",
+    "comparison.row3.legacy": "Requires €200+ handheld scanner",
     "comparison.row3.kashir": "Built-in smartphone camera scanner",
 
     "comparison.row4.name": "Contracts & Long-term Lock-in",
@@ -72,11 +65,11 @@ const translations = {
     "comparison.row5.kashir": "0€ (Simply swap to any backup phone)",
 
     // Interactive Savings Calculator
-    "calc.title": "Calculate Your Hardware & Register Savings",
+    "calc.title": "Calculate Your Savings in Machines and Registers",
     "calc.subtitle": "Move the slider to see how much money your store saves in year one with Kashir.",
-    "calc.sliderLabel": "Number of active registers / staff devices in your shop:",
+    "calc.sliderLabel": "Number of active registers in your shop:",
     "calc.terminals": "Registers",
-    "calc.legacyCost": "Legacy Hardware Cost (Yr 1):",
+    "calc.legacyCost": "Legacy Machine Cost (Yr 1):",
     "calc.kashirCost": "Kashir Cost (Yr 1):",
     "calc.savingsLabel": "Estimated Total Savings:",
     "calc.savingsBadge": "Money that stays in your pocket to grow your shop",
@@ -120,42 +113,35 @@ const translations = {
     "faq.a4": "As a Beta founder member, you receive lifetime grandfathered access with 0% software platform fees and dedicated VIP priority support.",
 
     // Footer
-    "footer.rights": "© 2026 Kashir POS. All rights reserved. Zero-Hardware Digital Cash Register & Invoicing.",
+    "footer.rights": "© 2026 Kashir TPV. All rights reserved. Zero-Hardware Digital Cash Register & Invoicing.",
     "footer.disclaimer": "Smoke test prototype for market validation and beta cohort onboarding."
   },
 
   es: {
     // Navigation
-    "nav.tagline": "Caja Registradora Digital y Facturación Sin Hardware para Tiendas y Comercios",
+    "nav.tagline": "Caja Registradora Digital y Facturación Sin Máquinas",
     "nav.scarcityBadge": "⚡ Beta Limitada: Quedan 14/50 Plazas",
-    "nav.cta": "Unirse a la Beta Exclusiva",
-    "lang.toggle": "🇬🇧 Switch to English",
+    "nav.cta": "Entrar a la Beta",
 
-    // Hero Section
-    "hero.badge": "🔥 BETA EXCLUSIVA PARA FUNDADORES · 0€ EN HARDWARE",
-    "hero.title": "Convierte Cualquier Móvil o Tablet en una Caja Registradora.",
+    // Hero Section (Laser-focused, punchy)
+    "hero.badge": "🔥 0€ EN MÁQUINAS · BETA PARA FUNDADORES",
+    "hero.title": "Convierte tu Móvil o Tablet en una Caja Registradora.",
     "hero.titleHighlight": "0€ en Aparatos. Facturas y Cuentas al Instante.",
-    "hero.subtitle": "Deja de gastar más de 2.000€ en pesadas cajas registradoras y cuotas mensuales. Con Kashir, escanea productos con la cámara de tu móvil, calcula la cuenta sin hacer operaciones de cabeza y emite facturas y tickets digitales legales en un segundo.",
-    "hero.ctaPrimary": "Reclamar Plaza Beta (Acceso Gratis de por Vida)",
-    "hero.ctaSubtext": "✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma para usuarios Beta",
-    "hero.stat1.value": "0€",
-    "hero.stat1.label": "Inversión en Máquinas",
-    "hero.stat2.value": "1 Seg",
-    "hero.stat2.label": "Para Escanear y Añadir Producto",
-    "hero.stat3.value": "100%",
-    "hero.stat3.label": "Cero Cuentas a Mano y Sincronizado",
+    "hero.subtitle": "Escanea productos con la cámara de tu móvil, calcula la cuenta sin hacer operaciones de cabeza y emite facturas y tickets digitales legales en un segundo.",
+    "hero.ctaPrimary": "Probar Gratis la Beta (Acceso 0€ de por Vida)",
+    "hero.ctaSubtext": "✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "El Acceso a la Beta de Fundadores es Estrictamente Limitado",
-    "urgency.desc": "Estamos seleccionando únicamente a 50 comerciantes de proximidad para validar la caja registradora más sencilla y económica. Una vez cubiertas las plazas, se aplicará la tarifa estándar.",
-    "urgency.spotsLeft": "Solo Quedan <strong>14 Plazas de Beta</strong> para el Trimestre Actual",
-    "urgency.timerText": "El registro se cerrará al agotar el cupo:",
+    "urgency.desc": "Estamos seleccionando únicamente a 50 comerciantes de proximidad para validar la caja registradora más sencilla y económica.",
+    "urgency.spotsLeft": "Solo Quedan <strong>14 Plazas de Beta</strong>",
+    "urgency.timerText": "El registro se cerrará pronto:",
 
-    // Interactive Showcase: Infinite Checkout
+    // Interactive Showcase: Camera Scanning & Auto Math
     "showcase.tag": "GESTIÓN FÁCIL PARA TU COMERCIO",
     "showcase.title": "Escanea, Calcula y Emite la Factura al Instante",
-    "showcase.subtitle": "Pensado especialmente para dueños de tiendas y pequeños negocios. Letras grandes, botones claros y tan fácil de usar que no requiere ningún conocimiento técnico.",
-    "showcase.step1.title": "1. Usa los Dispositivos que ya Tienes",
+    "showcase.subtitle": "Pensado especialmente para dueños de tiendas y pequeños negocios. Botones claros y tan fácil de usar que no requiere ningún conocimiento técnico.",
+    "showcase.step1.title": "1. Usa el Móvil que ya Tienes",
     "showcase.step1.desc": "Funciona a la perfección en cualquier móvil Android, iPhone, tablet iPad o portátil. Olvídate de pantallas táctiles propietarias que cuestan miles de euros.",
     "showcase.step2.title": "2. Escanea Códigos de Barra o QR y Factura al Instante",
     "showcase.step2.desc": "Escanea productos con códigos de barra o código QR con la cámara del móvil y genera la factura al instante sin tener que hacer ninguna cuenta ni cálculo de cabeza.",
@@ -193,7 +179,7 @@ const translations = {
     // Interactive Savings Calculator
     "calc.title": "Calcula Tu Ahorro Real en Máquinas y Cajas",
     "calc.subtitle": "Mueve la barra para ver cuánto dinero ahorrará tu tienda durante el primer año con Kashir.",
-    "calc.sliderLabel": "Número de cajas registradoras / dependientes en tu tienda:",
+    "calc.sliderLabel": "Número de cajas registradoras en tu tienda:",
     "calc.terminals": "Cajas de Cobro",
     "calc.legacyCost": "Coste Registradora Tradicional (Año 1):",
     "calc.kashirCost": "Coste con Kashir (Año 1):",
@@ -307,10 +293,10 @@ function setLanguage(lang) {
     }
   });
 
-  // Toggle button label
-  const toggleBtn = document.getElementById('lang-toggle-btn');
-  if (toggleBtn) {
-    toggleBtn.innerHTML = translations[lang]['lang.toggle'];
+  // Sync Flag Select Dropdown
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.value = lang;
   }
 
   // VeriFactu regulatory section logic:
@@ -330,18 +316,15 @@ function setLanguage(lang) {
   }
 }
 
-function toggleLanguage() {
-  const nextLang = currentLang === 'es' ? 'en' : 'es';
-  setLanguage(nextLang);
-}
-
-// Initialize on DOM load with auto-detection
+// Initialize on DOM load with auto-detection & flag dropdown
 document.addEventListener('DOMContentLoaded', () => {
   const initialLang = detectUserLanguage();
   setLanguage(initialLang);
 
-  const toggleBtn = document.getElementById('lang-toggle-btn');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', toggleLanguage);
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.addEventListener('change', (e) => {
+      setLanguage(e.target.value);
+    });
   }
 });
