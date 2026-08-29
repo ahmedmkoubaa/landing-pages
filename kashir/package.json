@@ -8,6 +8,7 @@
     "build": "echo 'Static build ready'"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "express": "^4.19.2"
   }
 }
