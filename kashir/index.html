@@ -82,13 +82,11 @@
                 autoplay 
                 muted 
                 loop 
-                controls
-                controlsList="nodownload noplaybackrate"
                 playsinline 
                 webkit-playsinline
                 preload="metadata"
                 aria-label="Demostración de Kashir escaneando productos y facturando con el móvil">
-                <source src="assets/videos/kashir_video_ad_es.mp4" type="video/mp4">
+                <source src="assets/videos/kashir_multiple_scans_es.mp4" type="video/mp4">
                 <!-- Fallback if video tag is not supported or fails -->
                 <img src="assets/images/phone-scan-pair.jpg" alt="Escanear código de barras de producto con la cámara del móvil y añadir a la cuenta" loading="eager" width="700" height="450">
               </video>
@@ -260,6 +258,38 @@
             <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">Todos tus productos e inventario ordenados sin esfuerzo</div>
             <div style="color: var(--text-secondary); font-size: 1rem; margin-top: 0.25rem;">Encuentra cualquier artículo en pantalla, añade stock en un segundo y evita apuntar en libretas o calcular a mano.</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Convincer: Presenter Explanation Video Section -->
+    <section class="presenter-video-section" style="padding: 3.5rem 0; background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container" style="max-width: 720px; text-align: center;">
+        <span class="section-tag" data-i18n="video.presenterTag">CONOCE A LOS FUNDADORES</span>
+        <h2 class="section-title" style="font-size: 1.85rem; margin-bottom: 0.75rem;" data-i18n="video.presenterTitle">Descubre cómo Kashir revoluciona tu negocio</h2>
+        <p class="section-subtitle" style="margin-bottom: 2rem; max-width: 600px;" data-i18n="video.presenterSubtitle">
+          Mira esta breve explicación de 1 minuto para ver cómo Kashir elimina las costosas máquinas registradoras.
+        </p>
+
+        <!-- Video with Big Play Button Overlay -->
+        <div class="presenter-video-wrapper">
+          <video 
+            id="kashir-presenter-video"
+            class="presenter-video"
+            poster="assets/images/hero-phone-pos.jpg"
+            preload="metadata"
+            playsinline
+            webkit-playsinline
+            aria-label="Vídeo explicativo de Kashir">
+            <source src="assets/videos/kashir_video_ad_es.mp4" type="video/mp4">
+            <!-- Fallback if video tag is not supported -->
+            <img src="assets/images/hero-phone-pos.jpg" alt="Kashir aplicación de caja registradora en móvil" width="700" height="400">
+          </video>
+          
+          <!-- Big Play Button Overlay -->
+          <button id="video-play-btn" class="video-play-overlay-btn" type="button" aria-label="Reproducir vídeo explicativo">
+            <span class="play-arrow">▶</span>
+          </button>
         </div>
       </div>
     </section>

@@ -23,6 +23,9 @@ const translations = {
     "video.unmute": "Unmute Video",
     "video.mute": "Mute Video",
     "video.liveDemo": "<strong>Live Demo:</strong> Scan products and issue invoices instantly without purchasing any extra hardware.",
+    "video.presenterTag": "MEET THE FOUNDERS",
+    "video.presenterTitle": "Discover How Kashir Works",
+    "video.presenterSubtitle": "Watch this quick 1-minute explanation to see how easily you can replace legacy POS screens.",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "Founder Beta Access is Strictly Capped",
@@ -140,6 +143,9 @@ const translations = {
     "video.unmute": "Activar Sonido",
     "video.mute": "Silenciar",
     "video.liveDemo": "<strong>Demostración en Vivo:</strong> Escanea el producto y genera la factura al instante sin comprar ningún aparato.",
+    "video.presenterTag": "CONOCE A LOS FUNDADORES",
+    "video.presenterTitle": "Descubre cómo Kashir revoluciona tu negocio",
+    "video.presenterSubtitle": "Mira esta breve explicación de 1 minuto para ver cómo Kashir elimina las costosas máquinas registradoras.",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "El Acceso a la Beta de Fundadores es Estrictamente Limitado",

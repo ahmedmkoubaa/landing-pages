@@ -1111,3 +1111,77 @@ body {
 .footer p {
   margin-bottom: 0.4rem;
 }
+
+/* Presenter Video Component */
+.presenter-video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--border-prominent);
+  box-shadow: var(--shadow-lg);
+  background: #0f172a;
+  margin: 0 auto;
+}
+
+.presenter-video {
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  max-height: 460px;
+  display: block;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 1.5px);
+  background: #0f172a;
+}
+
+.video-play-overlay-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(124, 58, 237, 0.95);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5), 0 0 0 0 rgba(124, 58, 237, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 5;
+  animation: playButtonPulse 2s infinite;
+}
+
+.video-play-overlay-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: #8b5cf6;
+  box-shadow: 0 15px 30px rgba(124, 58, 237, 0.65);
+}
+
+.video-play-overlay-btn .play-arrow {
+  font-size: 2rem;
+  margin-left: 6px;
+  line-height: 1;
+}
+
+.presenter-video-wrapper.is-playing .video-play-overlay-btn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+@keyframes playButtonPulse {
+  0% {
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5), 0 0 0 0 rgba(124, 58, 237, 0.4);
+  }
+  70% {
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5), 0 0 0 16px rgba(124, 58, 237, 0);
+  }
+  100% {
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5), 0 0 0 0 rgba(124, 58, 237, 0);
+  }
+}

@@ -229,15 +229,55 @@ function initFAQ() {
 
 // Video Mobile Playback Handler
 function initVideoControls() {
-  const video = document.getElementById('kashir-demo-video');
-  if (!video) return;
+  console.log("in initVideoControls")
 
-  // Attempt initial muted autoplay
-  video.muted = true;
-  const playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      // Autoplay prevented; native controls & poster remain ready
+  // 1. Top video: Autoplaying, loop, muted, no controls
+  const scansVideo = document.getElementById('kashir-demo-video');
+  if (scansVideo) {
+    scansVideo.muted = true;
+    scansVideo.removeAttribute('controls');
+    const playPromise = scansVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay prevented
+      });
+    }
+  }
+
+  // 2. Second video: Presenter video with click-to-play overlay
+  const presenterVideo = document.getElementById('kashir-presenter-video');
+  const playBtn = document.getElementById('video-play-btn');
+  const wrapper = playBtn ? playBtn.closest('.presenter-video-wrapper') : null;
+
+  console.log("video out of if");
+
+  if (presenterVideo && playBtn && wrapper) {
+
+    console.log("presenter video is here");
+    // Ensure it starts paused and doesn't autoplay
+    presenterVideo.pause();
+
+    // Play button click handler
+    playBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      wrapper.classList.add('is-playing');
+      presenterVideo.setAttribute('controls', 'controls');
+      presenterVideo.play().catch(err => {
+        console.warn('Playback error on presenter video:', err);
+      });
+    });
+
+    // Toggle overlay state when native play/pause occurs
+    presenterVideo.addEventListener('pause', () => {
+      wrapper.classList.remove('is-playing');
+      presenterVideo.removeAttribute('controls');
+    });
+
+    presenterVideo.addEventListener('play', () => {
+      wrapper.classList.add('is-playing');
+      presenterVideo.setAttribute('controls', 'controls');
     });
   }
 }
@@ -249,6 +289,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCTAs();
   initLeadForm();
   initFAQ();
-  initMobileStickyBar();
   initVideoControls();
 });
