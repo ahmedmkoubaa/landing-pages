@@ -25,7 +25,7 @@ const translations = {
     "video.liveDemo": "<strong>Live Demo:</strong> Scan products and issue invoices instantly without purchasing any extra hardware.",
     "video.presenterTag": "MEET THE FOUNDERS",
     "video.presenterTitle": "Discover How Kashir Works",
-    "video.presenterSubtitle": "Watch this quick 1-minute explanation to see how easily you can replace legacy POS screens.",
+    "video.presenterSubtitle": "Watch this quick 10-seconds explanation to see how easily you can replace legacy POS screens.",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "Founder Beta Access is Strictly Capped",
@@ -51,7 +51,7 @@ const translations = {
     "comparison.header.feature": "Feature & Cost Breakdown",
     "comparison.header.legacy": "Legacy POS Machine (Clover, Bank POS)",
     "comparison.header.kashir": "Kashir Cloud Register",
-    
+
     "comparison.row1.name": "Hardware Register Cost",
     "comparison.row1.legacy": "€1,200 – €3,500 upfront",
     "comparison.row1.kashir": "0€ (Use phones & tablets you already have)",
@@ -145,7 +145,7 @@ const translations = {
     "video.liveDemo": "<strong>Demostración en Vivo:</strong> Escanea el producto y genera la factura al instante sin comprar ningún aparato.",
     "video.presenterTag": "CONOCE A LOS FUNDADORES",
     "video.presenterTitle": "Descubre cómo Kashir revoluciona tu negocio",
-    "video.presenterSubtitle": "Mira esta breve explicación de 1 minuto para ver cómo Kashir elimina las costosas máquinas registradoras.",
+    "video.presenterSubtitle": "Mira esta breve explicación de 10 segundos para ver cómo Kashir elimina las costosas máquinas registradoras.",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "El Acceso a la Beta de Fundadores es Estrictamente Limitado",
@@ -171,7 +171,7 @@ const translations = {
     "comparison.header.feature": "Desglose de Costes y Funciones",
     "comparison.header.legacy": "Caja Registradora Clásica / TPV Banco",
     "comparison.header.kashir": "Kashir Cloud Register",
-    
+
     "comparison.row1.name": "Coste de Compra del Aparato o Máquina",
     "comparison.row1.legacy": "1.200€ – 3.500€ de pago inicial",
     "comparison.row1.kashir": "0€ (Usa móviles y tablets que ya tienes)",

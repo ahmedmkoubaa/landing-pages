@@ -229,7 +229,6 @@ function initFAQ() {
 
 // Video Mobile Playback Handler
 function initVideoControls() {
-  console.log("in initVideoControls")
 
   // 1. Top video: Autoplaying, loop, muted, no controls
   const scansVideo = document.getElementById('kashir-demo-video');
@@ -249,11 +248,7 @@ function initVideoControls() {
   const playBtn = document.getElementById('video-play-btn');
   const wrapper = playBtn ? playBtn.closest('.presenter-video-wrapper') : null;
 
-  console.log("video out of if");
-
   if (presenterVideo && playBtn && wrapper) {
-
-    console.log("presenter video is here");
     // Ensure it starts paused and doesn't autoplay
     presenterVideo.pause();
 
