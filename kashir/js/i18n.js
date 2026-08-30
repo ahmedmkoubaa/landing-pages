@@ -11,13 +11,18 @@ const translations = {
     "nav.scarcityBadge": "⚡ Limited Beta: 14/50 Spots Left",
     "nav.cta": "Join Beta",
 
-    // Hero Section (Laser-focused, punchy)
+    // Hero / Showcase Section
     "hero.badge": "🔥 0€ HARDWARE · FOUNDER BETA",
     "hero.title": "Turn Any Phone or Tablet Into a Smart Cash Register.",
     "hero.titleHighlight": "0€ Hardware. Instant Scanned Invoicing.",
     "hero.subtitle": "Scan product barcodes with your phone camera, compile itemized bills with zero manual math, and issue compliant digital receipts in seconds.",
     "hero.ctaPrimary": "Try Beta for Free (Lifetime 0€ Access)",
     "hero.ctaSubtext": "✓ No credit card required &nbsp;•&nbsp; ✓ 0€ Setup cost &nbsp;•&nbsp; ✓ 0% platform fee for Beta users",
+
+    // Video Section
+    "video.unmute": "Unmute Video",
+    "video.mute": "Mute Video",
+    "video.liveDemo": "<strong>Live Demo:</strong> Scan products and issue invoices instantly without purchasing any extra hardware.",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "Founder Beta Access is Strictly Capped",
@@ -123,13 +128,18 @@ const translations = {
     "nav.scarcityBadge": "⚡ Beta Limitada: Quedan 14/50 Plazas",
     "nav.cta": "Entrar a la Beta",
 
-    // Hero Section (Laser-focused, punchy)
+    // Hero / Showcase Section
     "hero.badge": "🔥 0€ EN MÁQUINAS · BETA PARA FUNDADORES",
     "hero.title": "Convierte tu Móvil o Tablet en una Caja Registradora.",
     "hero.titleHighlight": "0€ en Aparatos. Facturas y Cuentas al Instante.",
     "hero.subtitle": "Escanea productos con la cámara de tu móvil, calcula la cuenta sin hacer operaciones de cabeza y emite facturas y tickets digitales legales en un segundo.",
     "hero.ctaPrimary": "Probar Gratis la Beta (Acceso 0€ de por Vida)",
     "hero.ctaSubtext": "✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma",
+
+    // Video Section
+    "video.unmute": "Activar Sonido",
+    "video.mute": "Silenciar",
+    "video.liveDemo": "<strong>Demostración en Vivo:</strong> Escanea el producto y genera la factura al instante sin comprar ningún aparato.",
 
     // Live Urgency / Scarcity Banner
     "urgency.title": "El Acceso a la Beta de Fundadores es Estrictamente Limitado",

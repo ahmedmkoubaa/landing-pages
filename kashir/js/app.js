@@ -227,21 +227,19 @@ function initFAQ() {
   });
 }
 
-// Mobile Sticky Floating Bar
-function initMobileStickyBar() {
-  const stickyBar = document.getElementById('mobile-sticky-cta');
-  const topSection = document.getElementById('showcase') || document.getElementById('hero');
+// Video Mobile Playback Handler
+function initVideoControls() {
+  const video = document.getElementById('kashir-demo-video');
+  if (!video) return;
 
-  if (!stickyBar || !topSection) return;
-
-  window.addEventListener('scroll', () => {
-    const topBottom = topSection.getBoundingClientRect().bottom;
-    if (topBottom < 0) {
-      stickyBar.classList.add('visible');
-    } else {
-      stickyBar.classList.remove('visible');
-    }
-  });
+  // Attempt initial muted autoplay
+  video.muted = true;
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Autoplay prevented; native controls & poster remain ready
+    });
+  }
 }
 
 // DOM Ready initialization
@@ -252,4 +250,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLeadForm();
   initFAQ();
   initMobileStickyBar();
+  initVideoControls();
 });

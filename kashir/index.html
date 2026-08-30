@@ -72,13 +72,33 @@
     <section class="showcase-section" id="showcase" style="padding-top: 2rem;">
       <div class="container">
         <div class="showcase-grid">
-          <!-- Demonstration Photo: Phone Scanning Product Barcode -->
-          <div class="showcase-media">
-            <img src="assets/images/phone-scan-pair.jpg" alt="Escanear código de barras de producto con la cámara del móvil y añadir a la cuenta" loading="eager" width="700" height="450">
-            <div class="hero-floating-card">
+          <!-- Demonstration Video: Phone Scanning Product Barcode & Invoicing -->
+          <div class="video-showcase-wrapper">
+            <div class="showcase-media video-showcase-container">
+              <video 
+                id="kashir-demo-video"
+                class="showcase-video"
+                poster="assets/images/phone-scan-pair.jpg"
+                autoplay 
+                muted 
+                loop 
+                controls
+                controlsList="nodownload noplaybackrate"
+                playsinline 
+                webkit-playsinline
+                preload="metadata"
+                aria-label="Demostración de Kashir escaneando productos y facturando con el móvil">
+                <source src="assets/videos/kashir_video_ad_es.mp4" type="video/mp4">
+                <!-- Fallback if video tag is not supported or fails -->
+                <img src="assets/images/phone-scan-pair.jpg" alt="Escanear código de barras de producto con la cámara del móvil y añadir a la cuenta" loading="eager" width="700" height="450">
+              </video>
+            </div>
+
+            <!-- Clean Caption Outside of Video Frame -->
+            <div class="video-caption-box">
               <div class="pulse-dot"></div>
-              <div class="floating-card-text">
-                <strong>Escaneo Instantáneo:</strong> Apunta la cámara al código de barras o QR para añadir el producto a la cuenta al instante.
+              <div class="caption-text" data-i18n="video.liveDemo">
+                <strong>Demostración en Vivo:</strong> Escanea el producto y genera la factura al instante sin comprar ningún aparato.
               </div>
             </div>
           </div>
