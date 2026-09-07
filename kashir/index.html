@@ -24,13 +24,19 @@
   <!-- Core CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-952948429"></script>
+  <!-- Google tag (gtag.js) - Google Analytics 4 & Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MYNB977B02"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
+    // Google Analytics 4 Configuration (Measurement ID)
+    gtag('config', 'G-MYNB977B02', {
+      send_page_view: true
+    });
+
+    // Google Ads Configuration
     gtag('config', 'AW-952948429');
   </script>
 </head>
@@ -67,7 +73,7 @@
           <option value="en">🇬🇧</option>
         </select>
 
-        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-i18n="nav.cta" aria-label="Entrar a la Beta">
+        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-cta-location="header" data-i18n="nav.cta" aria-label="Entrar a la Beta">
           Entrar a la Beta →
         </a>
       </div>
@@ -130,7 +136,7 @@
             </div>
 
             <div style="margin-top: 0.75rem;">
-              <a href="#lead-capture-form" class="btn-primary anchor-cta" style="width: 100%;"
+              <a href="#lead-capture-form" class="btn-primary anchor-cta" data-cta-location="showcase" style="width: 100%;"
                 data-i18n="hero.ctaPrimary">
                 Probar Gratis la Beta (Acceso 0€ de por Vida)
               </a>
@@ -237,7 +243,7 @@
           </div>
 
           <div class="text-center" style="margin-top: 1.75rem;">
-            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-i18n="nav.cta">Entrar a la Beta</a>
+            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-cta-location="calculator" data-i18n="nav.cta">Entrar a la Beta →</a>
           </div>
         </div>
 
@@ -492,7 +498,7 @@
       </div>
       <span class="sticky-cta-sub" data-i18n="nav.mobileSub">Acceso 0€ de por vida</span>
     </div>
-    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-i18n="nav.cta" aria-label="Entrar a la Beta">
+    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-cta-location="mobile_sticky" data-i18n="nav.cta" aria-label="Entrar a la Beta">
       Entrar a la Beta →
     </a>
   </aside>

@@ -1,11 +1,86 @@
 /**
  * Kashir Landing Page Application Logic
- * Interactive Savings Calculator, Direct Email Dispatch (Zero Backend), Dynamic Urgency & Smooth Anchors.
+ * Interactive Savings Calculator, Direct Email Dispatch (Zero Backend), Dynamic Urgency, Smooth Anchors & GA4 Behavioral Tracking.
  */
 
 // Direct Frontend-to-Inbox Email Endpoint (No backend required)
 const LEAD_DESTINATION_EMAIL = "ahmedmou2000@gmail.com";
 const SUBMISSION_ENDPOINT = 'https://formsubmit.co/ajax/2041cb39dda0eea2cba867fafaac9238';
+
+/**
+ * Universal Analytics Dispatcher (Google Analytics 4, Google Ads, Vercel)
+ * @param {string} eventName - Standard GA4 or custom event name
+ * @param {object} params - Event parameters (dimensions, metrics, labels)
+ */
+function trackAnalyticsEvent(eventName, params = {}) {
+  try {
+    // 1. Google Analytics 4 (and linked Google Ads) via gtag.js
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, params);
+      console.log(`📊 [GA4 Event] ${eventName}`, params);
+    }
+    // 2. Vercel Web Analytics (if active)
+    if (typeof window.va === 'function') {
+      window.va('event', { name: eventName, data: params });
+    }
+  } catch (err) {
+    console.warn('Analytics event dispatch error:', err);
+  }
+}
+
+// Time Spent on Site & Engagement Milestones Tracking
+function initTimeEngagementTracking() {
+  const pageStartTime = Date.now();
+  const milestones = [15, 30, 60, 120, 180, 300]; // in seconds
+  const reachedMilestones = new Set();
+
+  // Active time interval tracker
+  const engagementInterval = setInterval(() => {
+    const elapsedSeconds = Math.floor((Date.now() - pageStartTime) / 1000);
+
+    milestones.forEach(milestone => {
+      if (elapsedSeconds >= milestone && !reachedMilestones.has(milestone)) {
+        reachedMilestones.add(milestone);
+        trackAnalyticsEvent('user_engagement_milestone', {
+          time_seconds: milestone,
+          time_label: `${milestone}s`,
+          event_category: 'Engagement'
+        });
+      }
+    });
+
+    // Stop after 10 minutes to save cycles
+    if (elapsedSeconds >= 600) {
+      clearInterval(engagementInterval);
+    }
+  }, 1000);
+
+  // Send session duration when the user leaves or switches away
+  const logSessionDuration = () => {
+    const totalDuration = Math.floor((Date.now() - pageStartTime) / 1000);
+    if (totalDuration >= 3) {
+      let bucket = '<15s';
+      if (totalDuration >= 180) bucket = '>3min';
+      else if (totalDuration >= 60) bucket = '1-3min';
+      else if (totalDuration >= 30) bucket = '30-60s';
+      else if (totalDuration >= 15) bucket = '15-30s';
+
+      trackAnalyticsEvent('session_duration', {
+        duration_seconds: totalDuration,
+        duration_bucket: bucket,
+        event_category: 'Engagement'
+      });
+    }
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      logSessionDuration();
+    }
+  });
+
+  window.addEventListener('pagehide', logSessionDuration);
+}
 
 // Interactive Savings Calculator
 function initCalculator() {
@@ -16,6 +91,8 @@ function initCalculator() {
   const savingsAmountEl = document.getElementById('calc-savings-amount');
 
   if (!slider) return;
+
+  let debounceTimer;
 
   function calculate() {
     const devices = parseInt(slider.value, 10);
@@ -37,6 +114,16 @@ function initCalculator() {
     legacyCostEl.textContent = `${totalLegacy.toLocaleString()} €`;
     kashirCostEl.textContent = `${totalKashir.toLocaleString()} €`;
     savingsAmountEl.textContent = `${savings.toLocaleString()} €`;
+
+    // Debounced GA4 tracking for calculator interaction
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      trackAnalyticsEvent('calculator_interaction', {
+        device_count: devices,
+        calculated_savings: savings,
+        event_category: 'Tool Usage'
+      });
+    }, 1200);
   }
 
   slider.addEventListener('input', calculate);
@@ -76,7 +163,7 @@ function initUrgency() {
   updateTimer();
 }
 
-// Smooth Scroll & Focus for all CTA buttons
+// Smooth Scroll & Focus for all CTA buttons with GA4 Attribution
 function initCTAs() {
   const ctaButtons = document.querySelectorAll('.anchor-cta');
   const formTarget = document.getElementById('lead-capture-form');
@@ -85,6 +172,20 @@ function initCTAs() {
   ctaButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+
+      const location = btn.getAttribute('data-cta-location') || 'unknown';
+      const buttonText = btn.textContent.trim();
+      const lang = document.documentElement.lang || 'es';
+
+      // 🎯 GA4 Custom Event: Track which button location was clicked
+      trackAnalyticsEvent('cta_click', {
+        button_location: location,
+        button_text: buttonText,
+        page_language: lang,
+        target_section: 'lead-capture-form',
+        event_category: 'Conversion Funnel'
+      });
+
       if (formTarget) {
         // Calculate offset position accounting for sticky header
         const headerEl = document.querySelector('.header');
@@ -113,7 +214,7 @@ function initCTAs() {
   });
 }
 
-// Lead Capture Form Submission Handling (Direct to Gmail via FormSubmit.co)
+// Lead Capture Form Submission Handling (Direct to Gmail via FormSubmit.co + GA4 / Google Ads)
 function initLeadForm() {
   const form = document.getElementById('lead-form');
   const submitBtn = document.getElementById('submit-btn');
@@ -180,7 +281,17 @@ function initLeadForm() {
 
       console.log('⚡ Lead successfully sent to:', LEAD_DESTINATION_EMAIL, emailPayload);
 
-      // Trigger Google Ads Conversion Tracking
+      // 🎯 1. Google Analytics 4 standard 'generate_lead' event
+      trackAnalyticsEvent('generate_lead', {
+        event_category: 'Lead Capture',
+        event_label: storeName,
+        store_type: storeType,
+        devices_count: devices,
+        currency: 'EUR',
+        value: 1.0
+      });
+
+      // 🎯 2. Google Ads Conversion Tracking (AW-952948429)
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           'send_to': 'AW-952948429/JXh1CLzT_ukcEM2ts8YD',
@@ -189,11 +300,8 @@ function initLeadForm() {
           'value': 1.0,
           'currency': 'EUR'
         });
-        window.gtag('event', 'generate_lead', {
-          'event_category': 'Beta Sign Up',
-          'event_label': storeName
-        });
       }
+
       // Show celebratory confirmation modal
       form.reset();
       if (successModal) {
@@ -202,7 +310,7 @@ function initLeadForm() {
 
     } catch (err) {
       console.error('Submission error:', err);
-      // Even if network glitches, display confirmation to prevent lead drop-off
+      // Display confirmation to prevent lead drop-off even if network glitch occurs
       if (successModal) {
         successModal.classList.remove('hidden');
       }
@@ -222,7 +330,7 @@ function initLeadForm() {
   }
 }
 
-// FAQ Accordion Interaction
+// FAQ Accordion Interaction with GA4 tracking
 function initFAQ() {
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -234,16 +342,22 @@ function initFAQ() {
         faqItems.forEach(i => i.classList.remove('active'));
         if (!isOpen) {
           item.classList.add('active');
+
+          const questionText = question.textContent.trim().replace('+', '').trim();
+          trackAnalyticsEvent('faq_expand', {
+            question_title: questionText,
+            event_category: 'FAQ Interaction'
+          });
         }
       });
     }
   });
 }
 
-// Video Mobile Playback Handler
+// Video Playback & Interaction Tracking (GA4 & User Behavior)
 function initVideoControls() {
 
-  // 1. Top video: Autoplaying, loop, muted, no controls
+  // 1. Top video: Autoplaying, loop, muted demo video
   const scansVideo = document.getElementById('kashir-demo-video');
   if (scansVideo) {
     scansVideo.muted = true;
@@ -265,10 +379,17 @@ function initVideoControls() {
     // Ensure it starts paused and doesn't autoplay
     presenterVideo.pause();
 
-    // Play button click handler
+    // 🎯 Track when user specifically clicks the big play button overlay
     playBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+
+      trackAnalyticsEvent('video_play_click', {
+        video_id: 'kashir-presenter-video',
+        video_title: 'Presenter Explanation Video - Meet the Founders',
+        interaction_type: 'play_button_click',
+        event_category: 'Video Engagement'
+      });
 
       wrapper.classList.add('is-playing');
       presenterVideo.setAttribute('controls', 'controls');
@@ -277,15 +398,35 @@ function initVideoControls() {
       });
     });
 
-    // Toggle overlay state when native play/pause occurs
+    // 🎯 Track native play event
+    presenterVideo.addEventListener('play', () => {
+      trackAnalyticsEvent('video_play', {
+        video_id: 'kashir-presenter-video',
+        video_current_time: Math.round(presenterVideo.currentTime),
+        event_category: 'Video Engagement'
+      });
+      wrapper.classList.add('is-playing');
+      presenterVideo.setAttribute('controls', 'controls');
+    });
+
+    // 🎯 Track native pause event
     presenterVideo.addEventListener('pause', () => {
+      trackAnalyticsEvent('video_pause', {
+        video_id: 'kashir-presenter-video',
+        video_current_time: Math.round(presenterVideo.currentTime),
+        event_category: 'Video Engagement'
+      });
       wrapper.classList.remove('is-playing');
       presenterVideo.removeAttribute('controls');
     });
 
-    presenterVideo.addEventListener('play', () => {
-      wrapper.classList.add('is-playing');
-      presenterVideo.setAttribute('controls', 'controls');
+    // 🎯 Track complete watch event
+    presenterVideo.addEventListener('ended', () => {
+      trackAnalyticsEvent('video_complete', {
+        video_id: 'kashir-presenter-video',
+        video_duration: Math.round(presenterVideo.duration || 10),
+        event_category: 'Video Engagement'
+      });
     });
   }
 }
@@ -298,4 +439,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLeadForm();
   initFAQ();
   initVideoControls();
+  initTimeEngagementTracking();
 });

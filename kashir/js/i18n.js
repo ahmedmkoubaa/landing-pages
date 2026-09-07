@@ -344,7 +344,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const langSelect = document.getElementById('lang-select');
   if (langSelect) {
     langSelect.addEventListener('change', (e) => {
-      setLanguage(e.target.value);
+      const newLang = e.target.value;
+      setLanguage(newLang);
+      if (typeof trackAnalyticsEvent === 'function') {
+        trackAnalyticsEvent('language_change', {
+          selected_language: newLang,
+          event_category: 'Localization'
+        });
+      }
     });
   }
 });
