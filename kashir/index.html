@@ -67,8 +67,8 @@
           <option value="en">🇬🇧</option>
         </select>
 
-        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-i18n="nav.cta">
-          Entrar a la Beta
+        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-i18n="nav.cta" aria-label="Entrar a la Beta">
+          Entrar a la Beta →
         </a>
       </div>
     </div>
@@ -483,15 +483,19 @@
 
   </main>
 
-  <!-- Sticky Mobile Bottom CTA Bar -->
-  <div class="mobile-sticky-cta" id="mobile-sticky-cta">
-    <div class="sticky-cta-text">
-      🔥 <span data-i18n="nav.scarcityBadge">Beta Limitada: Quedan 14/50 Plazas</span>
+  <!-- Sticky Mobile Bottom CTA Bar (Always Visible on Mobile) -->
+  <aside class="mobile-sticky-cta" id="mobile-sticky-cta" aria-label="Acceso rápido a la beta">
+    <div class="sticky-cta-info">
+      <div class="sticky-cta-badge">
+        <span class="pulse-flame">🔥</span>
+        <strong data-i18n="nav.mobileBadge">14 Plazas Beta</strong>
+      </div>
+      <span class="sticky-cta-sub" data-i18n="nav.mobileSub">Acceso 0€ de por vida</span>
     </div>
-    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-i18n="nav.cta">
-      Entrar a la Beta
+    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-i18n="nav.cta" aria-label="Entrar a la Beta">
+      Entrar a la Beta →
     </a>
-  </div>
+  </aside>
 
   <!-- Celebratory Success Modal -->
   <div id="success-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">

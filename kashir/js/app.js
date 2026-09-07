@@ -86,14 +86,27 @@ function initCTAs() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       if (formTarget) {
-        formTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Calculate offset position accounting for sticky header
+        const headerEl = document.querySelector('.header');
+        const headerOffset = (headerEl ? headerEl.offsetHeight : 70) + 16;
+        const targetTop = formTarget.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-        // Add subtle glow pulse animation
-        formTarget.classList.add('pulse-highlight');
-        setTimeout(() => formTarget.classList.remove('pulse-highlight'), 1800);
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: 'smooth'
+        });
+
+        // Add prominent celebratory glow pulse animation to form wrapper
+        const formWrapper = formTarget.querySelector('.form-wrapper') || formTarget;
+        formWrapper.classList.remove('pulse-highlight');
+        void formWrapper.offsetWidth; // Force reflow to re-trigger animation
+        formWrapper.classList.add('pulse-highlight');
+        setTimeout(() => formWrapper.classList.remove('pulse-highlight'), 2200);
 
         if (storeNameInput) {
-          setTimeout(() => storeNameInput.focus(), 600);
+          setTimeout(() => {
+            storeNameInput.focus({ preventScroll: true });
+          }, 700);
         }
       }
     });

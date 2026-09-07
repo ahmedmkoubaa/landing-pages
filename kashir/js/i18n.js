@@ -9,7 +9,9 @@ const translations = {
     // Navigation
     "nav.tagline": "Zero-Hardware Cash Register for Local Stores",
     "nav.scarcityBadge": "⚡ Limited Beta: 14/50 Spots Left",
-    "nav.cta": "Join Beta",
+    "nav.mobileBadge": "14 Beta Spots",
+    "nav.mobileSub": "Lifetime 0€ Access",
+    "nav.cta": "Join Beta →",
 
     // Hero / Showcase Section
     "hero.badge": "🔥 0€ HARDWARE · FOUNDER BETA",
@@ -129,7 +131,9 @@ const translations = {
     // Navigation
     "nav.tagline": "Caja Registradora Digital y Facturación Sin Máquinas",
     "nav.scarcityBadge": "⚡ Beta Limitada: Quedan 14/50 Plazas",
-    "nav.cta": "Entrar a la Beta",
+    "nav.mobileBadge": "14 Plazas Beta",
+    "nav.mobileSub": "Acceso 0€ de por vida",
+    "nav.cta": "Entrar a la Beta →",
 
     // Hero / Showcase Section
     "hero.badge": "🔥 0€ EN MÁQUINAS · BETA PARA FUNDADORES",
