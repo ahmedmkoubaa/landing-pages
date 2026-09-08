@@ -18,6 +18,9 @@ function trackAnalyticsEvent(eventName, params = {}) {
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, params);
       console.log(`📊 [GA4 Event] ${eventName}`, params);
+    } else if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+      console.log(`📊 [GA4 Event] ${eventName}`, params);
     }
     // 2. Vercel Web Analytics (if active)
     if (typeof window.va === 'function') {
