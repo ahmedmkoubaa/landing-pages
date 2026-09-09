@@ -17,16 +17,29 @@
   <meta property="og:image" content="assets/images/hero-phone-pos.jpg">
   <meta property="og:type" content="website">
 
-  <!-- Google tag (gtag.js) - Google Analytics 4 & Google Ads -->
+  <!-- ============================================================
+    Google Tag - GA4 (Primary) + Google Ads (Conversion Tracking)
+    GA4 Measurement ID : G-MYNB977B02
+    Google Ads ID      : AW-952948429
+
+    IMPORTANT: AW-952948429 should also be added as a
+    "Connected site tag" in GA4 Admin → Data Streams → Google tag
+    settings → Connected site tags. Once done, you may remove the
+    second gtag('config', 'AW-952948429') line below.
+  ============================================================ -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MYNB977B02"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag('js', new Date());
 
-    gtag('config', 'G-MYNB977B02');
-    gtag('config', 'AW-952948429');
+    // Primary: Google Analytics 4
+    gtag('config', 'G-MYNB977B02', { 'debug_mode': true });
+
+    // Secondary: Google Ads conversion tracking
+    // (link this in GA4 Admin > Data Streams > Connected site tags to avoid dual-tagging)
+    gtag('config', 'AW-952948429', { 'debug_mode': true });
   </script>
 
   <!-- Favicon Icon -->
@@ -69,7 +82,8 @@
           <option value="en">🇬🇧</option>
         </select>
 
-        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-cta-location="header" data-i18n="nav.cta" aria-label="Entrar a la Beta">
+        <a href="#lead-capture-form" class="btn-primary btn-header anchor-cta" data-cta-location="header"
+          data-i18n="nav.cta" aria-label="Entrar a la Beta">
           Entrar a la Beta →
         </a>
       </div>
@@ -132,8 +146,8 @@
             </div>
 
             <div style="margin-top: 0.75rem;">
-              <a href="#lead-capture-form" class="btn-primary anchor-cta" data-cta-location="showcase" style="width: 100%;"
-                data-i18n="hero.ctaPrimary">
+              <a href="#lead-capture-form" class="btn-primary anchor-cta" data-cta-location="showcase"
+                style="width: 100%;" data-i18n="hero.ctaPrimary">
                 Probar Gratis la Beta (Acceso 0€ de por Vida)
               </a>
               <div class="subtext-guarantee text-center" data-i18n="hero.ctaSubtext">
@@ -239,7 +253,8 @@
           </div>
 
           <div class="text-center" style="margin-top: 1.75rem;">
-            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-cta-location="calculator" data-i18n="nav.cta">Entrar a la Beta →</a>
+            <a href="#lead-capture-form" class="btn-primary anchor-cta" data-cta-location="calculator"
+              data-i18n="nav.cta">Entrar a la Beta →</a>
           </div>
         </div>
 
@@ -494,7 +509,8 @@
       </div>
       <span class="sticky-cta-sub" data-i18n="nav.mobileSub">Acceso 0€ de por vida</span>
     </div>
-    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-cta-location="mobile_sticky" data-i18n="nav.cta" aria-label="Entrar a la Beta">
+    <a href="#lead-capture-form" class="btn-primary sticky-cta-btn anchor-cta" data-cta-location="mobile_sticky"
+      data-i18n="nav.cta" aria-label="Entrar a la Beta">
       Entrar a la Beta →
     </a>
   </aside>
