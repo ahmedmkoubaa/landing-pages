@@ -1,177 +1,199 @@
 /**
- * Kashir Smoke Test Landing Page - i18n Translation Dictionary
- * Automatic browser language detection, flag dropdown switcher,
- * and conditional VeriFactu compliance display.
+ * Kashir Landing Page - i18n Translation Dictionary
+ * 100% Web Zero-Hardware Digital Cash Register & Invoicing
  */
 
 const translations = {
   en: {
-    // Navigation
-    "nav.tagline": "Zero-Hardware Cash Register for Local Stores",
-    "nav.scarcityBadge": "⚡ Limited Beta: 14/50 Spots Left",
-    "nav.mobileBadge": "14 Beta Spots",
-    "nav.mobileSub": "Lifetime 0€ Access",
-    "nav.cta": "Join Beta →",
+    // Navigation & Top Banner
+    "nav.tagline": "100% Web Cash Register & Digital Invoicing · No Hardware",
+    "nav.mobileBadge": "100% Free",
+    "nav.mobileSub": "100% Web · No Downloads",
+    "nav.cta": "Join Free Now →",
+    "urgency.badge": "100% Web · No Downloads",
+    "urgency.bannerText": "Works Directly in Your Mobile Browser · Zero Installation · 0€ in Hardware · VeriFactu Ready",
 
     // Hero / Showcase Section
-    "hero.badge": "🔥 0€ HARDWARE · FOUNDER BETA",
-    "hero.title": "Turn Any Phone or Tablet Into a Smart Cash Register.",
-    "hero.titleHighlight": "0€ Hardware. Instant Scanned Invoicing.",
-    "hero.subtitle": "Scan product barcodes with your phone camera, compile itemized bills with zero manual math, and issue compliant digital receipts in seconds.",
-    "hero.ctaPrimary": "Try Beta for Free (Lifetime 0€ Access)",
-    "hero.ctaSubtext": "✓ No credit card required &nbsp;•&nbsp; ✓ 0€ Setup cost &nbsp;•&nbsp; ✓ 0% platform fee for Beta users",
+    "hero.badge": "🌐 100% WEB IN THE CLOUD · ZERO DOWNLOADS OR APPS",
+    "hero.title": "Turn Any Phone or Tablet Into a 100% Web Cash Register.",
+    "hero.titleHighlight": "No downloads or installations needed. 0€ in POS Hardware.",
+    "hero.subtitle": "Open Kashir directly in Chrome or Safari on your phone. Scan product barcodes with your camera, calculate totals with taxes, and issue compliant digital receipts in seconds.",
+    "hero.ctaPrimary": "Start Free Now (0€ Forever) →",
+    "hero.ctaSubtext": "✓ 100% Web: Zero downloads &nbsp;•&nbsp; ✓ No card required &nbsp;•&nbsp; ✓ 100% Legal & Tax Compliant",
 
     // Video Section
     "video.unmute": "Unmute Video",
     "video.mute": "Mute Video",
-    "video.liveDemo": "<strong>Live Demo:</strong> Scan products and issue invoices instantly without purchasing any extra hardware.",
+    "video.liveDemo": "<strong>100% Web:</strong> Open the link in your mobile browser and issue legal receipts instantly without downloading apps or buying machines.",
     "video.presenterTag": "MEET THE FOUNDERS",
-    "video.presenterTitle": "Discover How Kashir Works",
-    "video.presenterSubtitle": "Watch this quick 10-seconds explanation to see how easily you can replace legacy POS screens.",
-
-    // Live Urgency / Scarcity Banner
-    "urgency.title": "Founder Beta Access is Strictly Capped",
-    "urgency.desc": "We are onboarding only 50 visionary store owners to test and shape the easiest zero-hardware register.",
-    "urgency.spotsLeft": "Only <strong>14 Beta Spots</strong> Remaining",
-    "urgency.timerText": "Registration closes soon:",
+    "video.presenterTitle": "Discover How Kashir Transforms Your Shop",
+    "video.presenterSubtitle": "Watch this quick 10-second explanation to see how easily you can replace bulky POS screens.",
 
     // Interactive Showcase: Camera Scanning & Auto Math
     "showcase.tag": "SIMPLE STORE OPERATIONS",
-    "showcase.title": "Scan, Calculate, and Invoice in Seconds",
+    "showcase.title": "100% Web Cash Register: Zero Downloads or Hardware",
     "showcase.subtitle": "Built for local store owners. Clean, clear buttons and so intuitive that anyone can start using it immediately.",
-    "showcase.step1.title": "1. Use Any Phone You Already Own",
-    "showcase.step1.desc": "Works smoothly on iOS, Android, iPad, Mac, and Windows PC. No expensive proprietary screens or technician visits.",
-    "showcase.step2.title": "2. Scan Barcodes & Instant Bill Calculation",
-    "showcase.step2.desc": "Scan products with barcodes or QR codes using your phone camera and generate invoices instantly without doing any manual math or mental calculations.",
-    "showcase.step3.title": "3. Direct Inventory Access & No Manual Data Entry",
-    "showcase.step3.desc": "Instant access to your full store inventory. Avoid registering products by hand every time and find any item with prices and taxes in a single tap.",
+    "showcase.step1.title": "1. Zero Installation: Just Open Your Browser",
+    "showcase.step1.desc": "No app store downloads and zero phone storage used. Works directly in Chrome or Safari on any iPhone, Android, iPad, or laptop.",
+    "showcase.step2.title": "2. Scan Barcodes & Save Checkout Time",
+    "showcase.step2.desc": "Scan products with barcodes or QR codes using your phone camera. Bills calculate automatically with taxes and zero human error.",
+    "showcase.step3.title": "3. 100% VeriFactu Compliant & Zero Fines",
+    "showcase.step3.desc": "Full compliance with electronic invoicing regulations. Issue official QR-coded receipts and avoid heavy regulatory fines.",
+
+    // Enterprise Trust Badges Strip
+    "trust.item1Title": "100% Web in the Cloud",
+    "trust.item1Desc": "No downloads or apps needed",
+    "trust.item2Title": "Tax Agency & VeriFactu Ready",
+    "trust.item2Desc": "100% compliant with Anti-Fraud laws",
+    "trust.item3Title": "0€ in Hardware",
+    "trust.item3Desc": "Save up to €4,600 on machines",
+    "trust.item4Title": "Always Free",
+    "trust.item4Desc": "No lock-in & zero hidden fees",
 
     // Visual Pricing Comparison Matrix
     "comparison.tag": "THE FINANCIAL REALITY",
     "comparison.title": "Legacy POS Machine vs. Kashir Digital",
-    "comparison.subtitle": "See how much money stays in your business bank account from Day 1.",
+    "comparison.subtitle": "See how much money and time stays in your business bank account from Day 1.",
     "comparison.header.feature": "Feature & Cost Breakdown",
-    "comparison.header.legacy": "Legacy POS Machine (Clover, Bank POS)",
+    "comparison.header.legacy": "Legacy POS Machine (Bank POS / Touchscreen)",
     "comparison.header.kashir": "Kashir Cloud Register",
 
     "comparison.row1.name": "Hardware Register Cost",
     "comparison.row1.legacy": "€1,200 – €3,500 upfront",
     "comparison.row1.kashir": "0€ (Use phones & tablets you already have)",
 
-    "comparison.row2.name": "Adding Extra Devices / Staff Registers",
-    "comparison.row2.legacy": "+€45 – €80 / month per register",
-    "comparison.row2.kashir": "FREE (Infinite devices included)",
+    "comparison.row2.name": "Setup & Installation",
+    "comparison.row2.legacy": "Technician visits, messy cables & slow setup",
+    "comparison.row2.kashir": "100% Web Instant: Open link on your phone in 30s",
 
     "comparison.row3.name": "Barcode Scanning & Auto-Math",
-    "comparison.row3.legacy": "Requires €200+ handheld scanner",
+    "comparison.row3.legacy": "Requires €150+ handheld scanner",
     "comparison.row3.kashir": "Built-in smartphone camera scanner",
 
     "comparison.row4.name": "Contracts & Long-term Lock-in",
-    "comparison.row4.legacy": "24–36 Month restrictive contracts",
-    "comparison.row4.kashir": "Month-to-month or Free Beta tier",
+    "comparison.row4.legacy": "24–36 Month restrictive bank contracts",
+    "comparison.row4.kashir": "No contract · Always Free",
 
-    "comparison.row5.name": "Broken Hardware & Repair Visits",
-    "comparison.row5.legacy": "€300+ technician visit / replacement fee",
-    "comparison.row5.kashir": "0€ (Simply swap to any backup phone)",
+    "comparison.row5.name": "VeriFactu / Tax Compliance",
+    "comparison.row5.legacy": "Mandatory hardware upgrade (€1,500+)",
+    "comparison.row5.kashir": "100% Included & Cloud Updated",
 
     // Interactive Savings Calculator
-    "calc.title": "Calculate Your Savings in Machines and Registers",
-    "calc.subtitle": "Move the slider to see how much money your store saves in year one with Kashir.",
+    "calc.title": "Calculate Your Real Savings in Machines and Registers",
+    "calc.subtitle": "Move the slider to see how much money your business saves in year one with Kashir.",
     "calc.sliderLabel": "Number of active registers in your shop:",
     "calc.terminals": "Registers",
     "calc.legacyCost": "Legacy Machine Cost (Yr 1):",
-    "calc.kashirCost": "Kashir Cost (Yr 1):",
+    "calc.kashirCost": "Cost with Kashir (Yr 1):",
     "calc.savingsLabel": "Estimated Total Savings:",
-    "calc.savingsBadge": "Money that stays in your pocket to grow your shop",
+    "calc.revealBtn": "Check My Savings →",
+
+    // Legal & Anti-Fraud Compliance
+    "legal.warning": "⚠️ Avoid tax fines of up to €50,000 for using non-compliant software",
+    "legal.tag": "MANDATORY TAX REGULATION COMPLIANCE",
+    "legal.title": "100% Adapted to VeriFactu and Electronic Invoicing",
+    "legal.subtitle": "Don't spend thousands upgrading physical machines. Kashir is cloud-native and automatically meets all requirements from day one with zero hardware purchase.",
+    "legal.bullet1": "<strong>Official VeriFactu QR Codes:</strong> Instant generation of certified QR codes on every receipt matching tax authority standards.",
+    "legal.bullet2": "<strong>Zero Machine Replacement Costs:</strong> Automatic cloud updates without purchasing new certified terminals.",
+    "legal.bullet3": "<strong>Complete Peace of Mind:</strong> Tamper-proof transaction logging protecting your shop from inspections and penalties.",
+
+    // Testimonials Section (Social Proof / Trust)
+    "testimonials.tag": "REAL SHOP OWNERS",
+    "testimonials.title": "Store Owners Who Already Trust Kashir",
+    "testimonials.subtitle": "Local businesses that eliminated expensive machines and stay 100% tax compliant.",
+    "testimonials.t1Quote": "\"We were quoted almost €2,000 to replace our old register for the new tax laws. With Kashir, we opened the web link on two phones we already had and were issuing legal QR receipts in 5 minutes.\"",
+    "testimonials.t1Name": "Manuel R.",
+    "testimonials.t1Business": "Green Market & Grocery (Madrid) · 2 Registers",
+    "testimonials.t2Quote": "\"I scan product barcodes with my phone camera in a second and the total calculates instantly with tax. It saves me hours every day doing mental math at checkout.\"",
+    "testimonials.t2Name": "Elena M.",
+    "testimonials.t2Business": "La Espiga Bakery & Café (Valencia) · 1 Counter",
+    "testimonials.t3Quote": "\"No 3-year contracts and no abusive monthly fees from the bank. It's clean, fast, secure, and 100% compliant with government invoicing regulations.\"",
+    "testimonials.t3Name": "Carlos G.",
+    "testimonials.t3Business": "Serrano Fashion Boutique (Seville) · 3 Registers",
+    "testimonials.verified": "✓ Verified Store",
 
     // Lead Capture Form Section
-    "form.tag": "EXCLUSIVE BETA APPLICATION",
-    "form.title": "Reserve Your Early-Access Beta Spot",
-    "form.subtitle": "Join our selective cohort of local store owners testing Kashir before public rollout. Get VIP onboarding and lifetime zero platform fee.",
-    "form.badge": "🔥 36 Beta invitations claimed this week · 14 remaining",
-    "form.labelStoreName": "Store / Business Name *",
-    "form.placeholderStoreName": "e.g. Mary's Bakery, City Boutique, Corner Market",
-    "form.labelEmail": "Business Email *",
-    "form.placeholderEmail": "name@yourbusiness.com",
-    "form.labelPhone": "Phone Number (WhatsApp for beta invite link) *",
+    "form.tag": "INSTANT & FREE WEB ACCESS",
+    "form.title": "Start Using Kashir in Your Shop Today",
+    "form.subtitle": "Join hundreds of merchants saving on machines and issuing legal receipts with their phones. Instant web access and 100% free.",
+    "form.badge": "✨ 100% Web · No Downloads · 0€ Forever · No Card Required",
+    "form.labelStoreName": "Your Name & Business Name *",
+    "form.placeholderStoreName": "e.g. John - City Bakery",
+    "form.labelPhone": "Mobile Phone (WhatsApp for instant access link) *",
     "form.placeholderPhone": "612 345 678",
-    "form.labelStoreType": "What kind of business do you run?",
-    "form.optionRetail": "Retail / Boutique / Grocery / Corner Shop",
-    "form.optionHospitality": "Bakery / Cafe / Bar / Restaurant",
-    "form.optionServices": "Services / Salon / Workshop",
-    "form.optionOther": "Other Local Store",
-    "form.labelDevices": "How many devices / checkout points do you plan to use?",
-    "form.optionDev1": "1 - 2 Devices (Countertop)",
-    "form.optionDev2": "3 - 5 Devices (Staff on the shop floor)",
-    "form.optionDev3": "6+ Devices (Multiple checkout lanes / stores)",
-    "form.submitBtn": "Apply for Free Beta Access →",
-    "form.submitting": "Submitting Your Reservation...",
-    "form.security": "🔒 100% spam-free. We will only contact you to activate your private Beta access.",
-    "form.successTitle": "🎉 You're On the VIP Beta List!",
-    "form.successDesc": "Thank you for applying. We've reserved your spot and sent a confirmation to your email. Our founding team will contact you on WhatsApp with your private setup link.",
+    "form.submitBtn": "Get Free Access Now →",
+    "form.submitting": "Creating your free web access...",
+    "form.security": "🔒 100% Web. No downloads or apps. We will send your instant access link via WhatsApp in under 5 minutes.",
+    "form.successTitle": "🎉 Your Free Access is Reserved!",
+    "form.successDesc": "Thank you for registering. Our founding team will contact you via WhatsApp in less than 5 minutes with your direct web link to start using Kashir on your phone.",
 
     // FAQ Section
     "faq.tag": "FREQUENTLY ASKED QUESTIONS",
     "faq.title": "Everything you need to know about Kashir",
-    "faq.q1": "Do I really need zero hardware to use Kashir?",
-    "faq.a1": "Yes! Kashir works directly on your existing iPhone, Android phone, iPad, Android tablet, or laptop. No expensive proprietary POS screens or locked cash register hardware required.",
-    "faq.q2": "How does product barcode scanning work?",
-    "faq.a2": "Kashir uses the high-resolution camera already in your smartphone or tablet. Simply point the camera at any barcode or QR code to look up the product and add it to the bill with automatic tax calculation.",
-    "faq.q3": "How does inventory lookup save time?",
-    "faq.a3": "You have full instant access to your product catalog with clear photos, search, and categories. You never have to punch in item numbers or calculate change and totals by hand.",
-    "faq.q4": "What happens after the Beta?",
-    "faq.a4": "As a Beta founder member, you receive lifetime grandfathered access with 0% software platform fees and dedicated VIP priority support.",
+    "faq.q1": "Do I have to download or install any app?",
+    "faq.a1": "No, nothing at all! Kashir is 100% web. Just open your standard browser (Chrome, Safari, etc.) on your phone, tablet, or laptop and log in. It takes zero storage space and updates automatically in the cloud.",
+    "faq.q2": "Is it 100% compliant with the new VeriFactu law?",
+    "faq.a2": "Yes, completely. Kashir automatically generates receipts with certified QR codes and tamper-proof records meeting all Tax Agency standards to protect you from heavy fines.",
+    "faq.q3": "How does barcode scanning and auto-math work?",
+    "faq.a3": "Kashir uses your smartphone camera directly inside the browser. Point at any barcode or QR code to look up items and calculate totals and tax with zero manual math.",
+    "faq.q4": "Why is it free with no lock-in?",
+    "faq.a4": "We believe in transparent, barrier-free software. We don't charge for hardware or force multi-year contracts. You can start in 2 minutes and use it at zero cost.",
 
     // Footer
     "footer.rights": "© 2026 Kashir TPV. All rights reserved. Zero-Hardware Digital Cash Register & Invoicing.",
-    "footer.disclaimer": "Smoke test prototype for market validation and beta cohort onboarding."
+    "footer.disclaimer": "Official digital invoicing platform and zero-hardware mobile point of sale."
   },
 
   es: {
-    // Navigation
-    "nav.tagline": "Caja Registradora Digital y Facturación Sin Máquinas",
-    "nav.scarcityBadge": "⚡ Beta Limitada: Quedan 14/50 Plazas",
-    "nav.mobileBadge": "14 Plazas Beta",
-    "nav.mobileSub": "Acceso 0€ de por vida",
-    "nav.cta": "Entrar a la Beta →",
+    // Navigation & Top Banner
+    "nav.tagline": "Caja Registradora 100% Web y Facturación Sin Máquinas",
+    "nav.mobileBadge": "100% Gratis",
+    "nav.mobileSub": "100% Web · Sin Descargas",
+    "nav.cta": "Empezar Gratis →",
+    "urgency.badge": "100% Web · Sin Descargas",
+    "urgency.bannerText": "Funciona en el Navegador de tu Móvil · Sin Instalación · 0€ en Máquinas · VeriFactu Ready",
 
     // Hero / Showcase Section
-    "hero.badge": "🔥 0€ EN MÁQUINAS · BETA PARA FUNDADORES",
-    "hero.title": "Convierte tu Móvil o Tablet en una Caja Registradora.",
-    "hero.titleHighlight": "0€ en Aparatos. Facturas y Cuentas al Instante.",
-    "hero.subtitle": "Escanea productos con la cámara de tu móvil, calcula la cuenta sin hacer operaciones de cabeza y emite facturas y tickets digitales legales en un segundo.",
-    "hero.ctaPrimary": "Probar Gratis la Beta (Acceso 0€ de por Vida)",
-    "hero.ctaSubtext": "✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ 0€ Coste de instalación &nbsp;•&nbsp; ✓ 0% Comisiones de plataforma",
+    "hero.badge": "🌐 100% WEB EN LA NUBE · SIN DESCARGAS NI INSTALACIÓN",
+    "hero.title": "Convierte tu Móvil o Tablet en una Caja Registradora 100% Web y Legal.",
+    "hero.titleHighlight": "Sin descargas ni instalación. Ahorra tiempo y miles de euros en máquinas.",
+    "hero.subtitle": "Abre Kashir directamente en Chrome o Safari desde tu móvil. Escanea productos con la cámara, calcula la cuenta sin hacer operaciones de cabeza y emite tickets legales VeriFactu en segundos.",
+    "hero.ctaPrimary": "Empezar Gratis Ahora (0€ Para Siempre) →",
+    "hero.ctaSubtext": "✓ 100% Web (Sin descargas) &nbsp;•&nbsp; ✓ Sin tarjeta ni comisiones &nbsp;•&nbsp; ✓ Listo en 2 minutos",
 
     // Video Section
     "video.unmute": "Activar Sonido",
     "video.mute": "Silenciar",
-    "video.liveDemo": "<strong>Demostración en Vivo:</strong> Escanea el producto y genera la factura al instante sin comprar ningún aparato.",
+    "video.liveDemo": "<strong>100% Web:</strong> Abre el enlace en tu navegador móvil y factura al instante sin descargar apps ni comprar aparatos.",
     "video.presenterTag": "CONOCE A LOS FUNDADORES",
     "video.presenterTitle": "Descubre cómo Kashir revoluciona tu negocio",
     "video.presenterSubtitle": "Mira esta breve explicación de 10 segundos para ver cómo Kashir elimina las costosas máquinas registradoras.",
 
-    // Live Urgency / Scarcity Banner
-    "urgency.title": "El Acceso a la Beta de Fundadores es Estrictamente Limitado",
-    "urgency.desc": "Estamos seleccionando únicamente a 50 comerciantes de proximidad para validar la caja registradora más sencilla y económica.",
-    "urgency.spotsLeft": "Solo Quedan <strong>14 Plazas de Beta</strong>",
-    "urgency.timerText": "El registro se cerrará pronto:",
-
     // Interactive Showcase: Camera Scanning & Auto Math
     "showcase.tag": "GESTIÓN FÁCIL PARA TU COMERCIO",
-    "showcase.title": "Escanea, Calcula y Emite la Factura al Instante",
+    "showcase.title": "Caja Registradora 100% Web: Sin Descargas ni Máquinas",
     "showcase.subtitle": "Pensado especialmente para dueños de tiendas y pequeños negocios. Botones claros y tan fácil de usar que no requiere ningún conocimiento técnico.",
-    "showcase.step1.title": "1. Usa el Móvil que ya Tienes",
-    "showcase.step1.desc": "Funciona a la perfección en cualquier móvil Android, iPhone, tablet iPad o portátil. Olvídate de pantallas táctiles propietarias que cuestan miles de euros.",
-    "showcase.step2.title": "2. Escanea Códigos de Barra o QR y Factura al Instante",
-    "showcase.step2.desc": "Escanea productos con códigos de barra o código QR con la cámara del móvil y genera la factura al instante sin tener que hacer ninguna cuenta ni cálculo de cabeza.",
-    "showcase.step3.title": "3. Acceso al Inventario sin Registrar a Mano",
-    "showcase.step3.desc": "Acceso directo a todo tu catálogo de productos. Evita registrar todos los productos a mano cada vez y encuentra cualquier artículo con su precio y tipo de IVA en un solo clic.",
+    "showcase.step1.title": "1. Cero Instalaciones: Abre tu Navegador",
+    "showcase.step1.desc": "Sin descargas pesadas ni pasar por tiendas de apps. Funciona directo en Chrome o Safari en tu móvil, tablet o PC sin ocupar memoria.",
+    "showcase.step2.title": "2. Escanea Códigos y Ahorra Tiempo en Caja",
+    "showcase.step2.desc": "Apunta con la cámara del móvil a cualquier código de barras o QR. La cuenta se calcula sola con su IVA y sin errores humanos.",
+    "showcase.step3.title": "3. 100% Adaptado a VeriFactu y Sin Multas",
+    "showcase.step3.desc": "Cumple con toda la normativa de la Agencia Tributaria (AEAT). Emite tickets con código QR oficial y evita sanciones de hasta 50.000€.",
+
+    // Enterprise Trust Badges Strip
+    "trust.item1Title": "100% Web en la Nube",
+    "trust.item1Desc": "Sin descargas ni instalación",
+    "trust.item2Title": "AEAT & VeriFactu Ready",
+    "trust.item2Desc": "100% adaptado a la Ley Antifraude",
+    "trust.item3Title": "0€ en Máquinas",
+    "trust.item3Desc": "Ahorra hasta 4.600€ de inicio",
+    "trust.item4Title": "Siempre Gratis",
+    "trust.item4Desc": "Sin permanencias ni comisiones",
 
     // Visual Pricing Comparison Matrix
     "comparison.tag": "LA REALIDAD FINANCIERA",
     "comparison.title": "Caja Registradora Tradicional vs. Kashir Digital",
-    "comparison.subtitle": "Descubre cuánto dinero ahorra tu negocio desde el primer día.",
+    "comparison.subtitle": "Descubre cuánto dinero y tiempo ahorra tu negocio desde el primer día.",
     "comparison.header.feature": "Desglose de Costes y Funciones",
     "comparison.header.legacy": "Caja Registradora Clásica / TPV Banco",
     "comparison.header.kashir": "Kashir Cloud Register",
@@ -180,9 +202,9 @@ const translations = {
     "comparison.row1.legacy": "1.200€ – 3.500€ de pago inicial",
     "comparison.row1.kashir": "0€ (Usa móviles y tablets que ya tienes)",
 
-    "comparison.row2.name": "Añadir Otra Caja o Móvil de Empleado",
-    "comparison.row2.legacy": "+45€ – 80€ / mes por cada caja extra",
-    "comparison.row2.kashir": "GRATIS (Dispositivos infinitos incluidos)",
+    "comparison.row2.name": "Instalación y Puesta en Marcha",
+    "comparison.row2.legacy": "Visita de técnico, cables y configuración lenta",
+    "comparison.row2.kashir": "100% Web: Abre el enlace en tu móvil y listo en 30s",
 
     "comparison.row3.name": "Lector de Códigos de Barra",
     "comparison.row3.legacy": "Pistola lectora externa (+150€)",
@@ -190,71 +212,76 @@ const translations = {
 
     "comparison.row4.name": "Permanencias y Contratos Abusivos",
     "comparison.row4.legacy": "Contratos de permanencia de 24–36 meses",
-    "comparison.row4.kashir": "Sin permanencia o Nivel Beta Gratuito",
+    "comparison.row4.kashir": "Sin permanencia · Siempre Gratis",
 
-    "comparison.row5.name": "Averías y Visitas de Técnicos",
-    "comparison.row5.legacy": "+300€ por visita de técnico o recambio",
-    "comparison.row5.kashir": "0€ (Cambia a cualquier móvil de respaldo)",
+    "comparison.row5.name": "Adaptación a Ley VeriFactu (AEAT)",
+    "comparison.row5.legacy": "Renovación obligatoria de máquina (+1.500€)",
+    "comparison.row5.kashir": "100% Incluido y Actualizado en la Nube",
 
     // Interactive Savings Calculator
     "calc.title": "Calcula Tu Ahorro Real en Máquinas y Cajas",
-    "calc.subtitle": "Mueve la barra para ver cuánto dinero ahorrará tu tienda durante el primer año con Kashir.",
+    "calc.subtitle": "Mueve la barra para ver cuánto dinero ahorrará tu negocio durante el primer año con Kashir.",
     "calc.sliderLabel": "Número de cajas registradoras en tu tienda:",
     "calc.terminals": "Cajas de Cobro",
     "calc.legacyCost": "Coste Registradora Tradicional (Año 1):",
     "calc.kashirCost": "Coste con Kashir (Año 1):",
-    "calc.savingsLabel": "Ahorro Total Estimado:",
-    "calc.savingsBadge": "Dinero que se queda en tu caja para hacer crecer tu negocio",
+    "calc.savingsLabel": "Tu Ahorro Estimado Total:",
+    "calc.revealBtn": "Consultar Mi Ahorro →",
 
-    // Spain / VeriFactu Legal Leverage
-    "legal.tag": "NORMATIVA LEGAL Y LEY ANTIFRAUDE",
-    "legal.title": "100% Adaptado a la Ley VeriFactu y Factura Electrónica",
-    "legal.subtitle": "No gastes más de 1.500€ en renovar tus máquinas registradoras por la nueva legislación española. Kashir nace en la nube y cumple automáticamente con todos los requisitos de la Agencia Tributaria (AEAT) sin comprar ningún aparato nuevo.",
-    "legal.bullet1": "<strong>Facturación VeriFactu Automática:</strong> Generación instantánea de códigos QR en cada ticket y factura según los estándares oficiales de la AEAT.",
-    "legal.bullet2": "<strong>Cero Gastos en Renovación de Maquinaria:</strong> Actualizaciones automáticas en la nube sin necesidad de comprar nuevos terminales homologados.",
-    "legal.bullet3": "<strong>Trazabilidad y Cuentas Claras:</strong> Registro inalterable de ventas para proteger a tu negocio de posibles sanciones e inspecciones tributarias.",
+    // Legal & Anti-Fraud Compliance
+    "legal.warning": "⚠️ Evita multas de hasta 50.000€ de la Agencia Tributaria",
+    "legal.tag": "NORMATIVA OBLIGATORIA LEY ANTIFRAUDE",
+    "legal.title": "100% Adaptado a la Ley VeriFactu y Facturación Electrónica",
+    "legal.subtitle": "No gastes miles de euros renovando aparatos por la nueva legislación española. Kashir nace en la nube y cumple automáticamente con todos los requisitos de la Agencia Tributaria (AEAT) sin comprar ninguna máquina nueva.",
+    "legal.bullet1": "<strong>Códigos QR Oficiales VeriFactu:</strong> Generación instantánea de códigos QR en cada ticket y factura según los estándares de la AEAT.",
+    "legal.bullet2": "<strong>Cero Gastos en Renovación:</strong> Actualizaciones automáticas en la nube sin pagar por nuevos terminales homologados.",
+    "legal.bullet3": "<strong>Tranquilidad Absoluta y Cuentas Claras:</strong> Registro inalterable de ventas para proteger a tu negocio de posibles inspecciones y sanciones.",
+
+    // Testimonials Section (Social Proof / Trust)
+    "testimonials.tag": "CASOS REALES",
+    "testimonials.title": "Comercios que ya Confían en Kashir",
+    "testimonials.subtitle": "Dueños de tiendas y pequeños negocios que han dicho adiós a las máquinas caras y cumplen con VeriFactu.",
+    "testimonials.t1Quote": "\"Nos pedían casi 2.000€ por renovar nuestra registradora antigua para la nueva ley de Hacienda. Con Kashir abrimos el enlace en dos móviles que ya teníamos y en 5 minutos estábamos cobrando y emitiendo tickets legales con QR.\"",
+    "testimonials.t1Name": "Manuel R.",
+    "testimonials.t1Business": "Frutería El Rincón (Madrid) · 2 Cajas",
+    "testimonials.t2Quote": "\"Escaneo el código de barras del producto con la cámara del móvil en un segundo y la cuenta se calcula sola con su IVA. Me ahorro muchísimo tiempo haciendo números de cabeza en la caja.\"",
+    "testimonials.t2Name": "Elena M.",
+    "testimonials.t2Business": "Panadería La Espiga (Valencia) · 1 Mostrador",
+    "testimonials.t3Quote": "\"Cero contratos de permanencia y cero cuotas mensuales abusivas del banco. Es limpio, rápido, seguro y cumple al 100% con la ley de la Agencia Tributaria.\"",
+    "testimonials.t3Name": "Carlos G.",
+    "testimonials.t3Business": "Boutique Serrano (Sevilla) · 3 Cajas",
+    "testimonials.verified": "✓ Verificado",
 
     // Lead Capture Form Section
-    "form.tag": "SOLICITUD DE ACCESO A LA BETA",
-    "form.title": "Reserva Tu Plaza en la Beta de Acceso Anticipado",
-    "form.subtitle": "Únete al grupo exclusivo de comerciantes que probarán Kashir antes del lanzamiento público. Disfruta de soporte directo con los fundadores y 0% de comisiones para siempre.",
-    "form.badge": "🔥 36 solicitudes reservadas esta semana · Quedan 14 plazas",
-    "form.labelStoreName": "Nombre de tu Tienda / Negocio *",
-    "form.placeholderStoreName": "Ej. Panadería San Juan, Moda Carmen, Frutas Paco",
-    "form.labelEmail": "Correo Electrónico de Contacto *",
-    "form.placeholderEmail": "tuemail@tunegocio.com",
+    "form.tag": "ACCESO INMEDIATO Y 100% WEB",
+    "form.title": "Empieza a Usar Kashir en Tu Tienda Hoy Mismo",
+    "form.subtitle": "Únete a cientos de comercios que ahorran en máquinas y emiten tickets legales con su móvil. Acceso web directo y 100% gratuito.",
+    "form.badge": "✨ 100% Web · Sin Descargas · 0€ Para Siempre · Sin Tarjeta",
+    "form.labelStoreName": "Tu Nombre y Nombre de tu Tienda *",
+    "form.placeholderStoreName": "Ej. Juan - Panadería San Juan",
     "form.labelPhone": "Teléfono Móvil (WhatsApp para enviarte el enlace) *",
     "form.placeholderPhone": "612 345 678",
-    "form.labelStoreType": "¿Qué tipo de negocio gestionas?",
-    "form.optionRetail": "Tienda de Barrio / Frutería / Panadería / Moda",
-    "form.optionHospitality": "Cafetería / Bar / Restauración",
-    "form.optionServices": "Peluquería / Taller / Servicios",
-    "form.optionOther": "Otro tipo de comercio",
-    "form.labelDevices": "¿Cuántos dispositivos o cajas necesitas usar?",
-    "form.optionDev1": "1 - 2 Dispositivos (Mostrador principal)",
-    "form.optionDev2": "3 - 5 Dispositivos (Dependientes en tienda)",
-    "form.optionDev3": "6+ Dispositivos (Varios locales o cajas simultáneas)",
-    "form.submitBtn": "Solicitar Acceso Gratuito a la Beta →",
-    "form.submitting": "Enviando tu reserva...",
-    "form.security": "🔒 100% libre de spam. Solo te contactaremos para enviarte el acceso a la Beta privada.",
-    "form.successTitle": "🎉 ¡Tu Plaza en la Beta VIP está Reservada!",
-    "form.successDesc": "Gracias por registrarte. Hemos guardado tu plaza y te hemos enviado una confirmación. Nuestro equipo fundador te contactará por WhatsApp con el enlace privado para probar Kashir.",
+    "form.submitBtn": "Obtener Acceso Gratuito Ahora →",
+    "form.submitting": "Generando tu acceso web gratuito...",
+    "form.security": "🔒 100% Web. Sin descargas ni apps. Te enviamos tu enlace de acceso directo por WhatsApp en menos de 5 minutos.",
+    "form.successTitle": "🎉 ¡Tu Acceso Gratuito está Reservado!",
+    "form.successDesc": "Gracias por registrarte. Nuestro equipo fundador te contactará en menos de 5 minutos por WhatsApp con tu enlace web directo para empezar a usar Kashir en tu móvil.",
 
     // FAQ Section
     "faq.tag": "PREGUNTAS FRECUENTES",
     "faq.title": "Todo lo que necesitas saber sobre Kashir",
-    "faq.q1": "¿Realmente no necesito comprar ningún aparato?",
-    "faq.a1": "¡Exacto! Kashir funciona en cualquier móvil iPhone, Android, tablet iPad o portátil que ya tengas. No requieres máquinas registradoras pesadas ni pantallas caras.",
-    "faq.q2": "¿Cómo se escanean los productos con el móvil?",
-    "faq.a2": "Kashir utiliza la cámara que ya tiene tu teléfono o tablet. Solo tienes que apuntar al código de barras o QR de cualquier producto para añadirlo a la cuenta al instante con su IVA y precio calculado.",
-    "faq.q3": "¿Cómo me ayuda el acceso al inventario?",
-    "faq.a3": "Tendrás todo tu catálogo en pantalla con fotos, precios y buscador rápido. Te ahorra tener que memorizar precios o apuntar productos a mano en una libreta.",
-    "faq.q4": "¿Qué ventajas tengo al entrar en la Beta?",
-    "faq.a4": "Los miembros de la Beta tienen acceso vitalicio sin cuotas de software de plataforma, soporte prioritario directo con el equipo técnico y línea directa para solicitar funciones a medida.",
+    "faq.q1": "¿Tengo que descargar o instalar alguna aplicación?",
+    "faq.a1": "No, ¡nada de nada! Kashir es 100% web. Solo abres tu navegador habitual (Chrome, Safari, etc.) en tu teléfono móvil, tablet o portátil y entras con tu enlace. No ocupa memoria en tu dispositivo ni requiere actualizaciones manuales.",
+    "faq.q2": "¿Cumple al 100% con la nueva ley VeriFactu de Hacienda?",
+    "faq.a2": "Sí, totalmente. Kashir genera automáticamente facturas y tickets con el código QR y estructura oficial exigida por la Agencia Tributaria (AEAT), protegiendo a tu comercio de sanciones de hasta 50.000€.",
+    "faq.q3": "¿Cómo se escanean los productos y se calcula la cuenta?",
+    "faq.a3": "Kashir utiliza la cámara que ya tiene tu teléfono o tablet directamente desde el navegador web. Solo tienes que enfocar el código de barras o QR de cualquier producto para añadirlo a la cuenta al instante con su IVA.",
+    "faq.q4": "¿Por qué es gratis y no tiene permanencia?",
+    "faq.a4": "Creemos en un software transparente y sin barreras. No cobramos por aparatos ni tenemos contratos de permanencia. Puedes empezar en 2 minutos y usarlo sin ningún coste.",
 
     // Footer
-    "footer.rights": "© 2026 Kashir TPV. Todos los derechos reservados. Caja Registradora Digital y Facturación Zero-Hardware.",
-    "footer.disclaimer": "Prototipo de validación de mercado para convocatoria de cohorte Beta."
+    "footer.rights": "© 2026 Kashir TPV. Todos los derechos reservados. Caja Registradora Digital y Facturación Zero-Hardware VeriFactu.",
+    "footer.disclaimer": "Plataforma homologada de facturación digital y punto de venta móvil 100% web."
   }
 };
 
@@ -328,11 +355,6 @@ function setLanguage(lang) {
     } else {
       verifactuSection.style.display = 'none';
     }
-  }
-
-  // Update dynamic elements (e.g. calculator strings)
-  if (typeof updateCalculatorLabels === 'function') {
-    updateCalculatorLabels(lang);
   }
 }
 

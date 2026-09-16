@@ -115,8 +115,9 @@ function initCalculator() {
     const savings = totalLegacy - totalKashir;
 
     legacyCostEl.textContent = `${totalLegacy.toLocaleString()} €`;
-    kashirCostEl.textContent = `${totalKashir.toLocaleString()} €`;
-    savingsAmountEl.textContent = `${savings.toLocaleString()} €`;
+    if (kashirCostEl) {
+      kashirCostEl.textContent = currentDocLang === 'es' ? '0 € (Siempre Gratis)' : '0 € (Always Free)';
+    }
 
     // Debounced GA4 tracking for calculator interaction
     clearTimeout(debounceTimer);
@@ -133,7 +134,7 @@ function initCalculator() {
   calculate(); // run initial calculation
 }
 
-// Dynamic Urgency & Countdown Timer
+// Dynamic Urgency & Security Banner (Optional Rolling Timer)
 function initUrgency() {
   const hoursEl = document.getElementById('timer-hours');
   const minsEl = document.getElementById('timer-mins');
@@ -232,17 +233,16 @@ function initLeadForm() {
     e.preventDefault();
 
     const storeName = document.getElementById('store-name').value.trim();
-    const email = document.getElementById('email').value.trim();
     const countryCode = document.getElementById('phone-country').value;
     const rawPhone = document.getElementById('phone-number').value.trim();
     const fullPhone = `${countryCode} ${rawPhone}`;
-    const storeType = document.getElementById('store-type').value;
-    const devices = document.getElementById('device-count-select').value;
+    const sliderEl = document.getElementById('device-slider');
+    const devices = sliderEl ? sliderEl.value : '3';
     const lang = document.documentElement.lang || 'es';
 
-    // Simple client-side validation
-    if (!storeName || !email || !rawPhone) {
-      alert(lang === 'es' ? 'Por favor completa todos los campos obligatorios.' : 'Please fill in all required fields.');
+    // Simple, low-friction validation (Only Name & Phone required)
+    if (!storeName || !rawPhone) {
+      alert(lang === 'es' ? 'Por favor completa tu nombre y número de WhatsApp.' : 'Please enter your name and WhatsApp number.');
       return;
     }
 
@@ -250,19 +250,18 @@ function initLeadForm() {
     if (submitBtn) submitBtn.disabled = true;
     if (submitSpinner) submitSpinner.classList.remove('hidden');
     if (submitBtnText) {
-      submitBtnText.textContent = lang === 'es' ? 'Enviando tu solicitud...' : 'Reserving your spot...';
+      submitBtnText.textContent = lang === 'es' ? 'Generando tu acceso gratuito...' : 'Creating your free access...';
     }
 
     // Payload formatted cleanly for email notification table
     const emailPayload = {
-      _subject: `🔥 Nuevo Lead Kashir Beta: ${storeName}`,
+      _subject: `🚀 Nuevo Registro Kashir (100% Gratis): ${storeName}`,
       _template: "table",
       _captcha: "false",
-      "Tienda / Negocio": storeName,
-      "Email de Contacto": email,
+      "Tienda / Nombre": storeName,
       "Teléfono WhatsApp": fullPhone,
-      "Tipo de Comercio": storeType,
-      "Dispositivos / Cajas": devices,
+      "Cajas / Dispositivos Estimados": `${devices} dispositivos`,
+      "Normativa": "VeriFactu & AEAT Ready",
       "Idioma de Navegación": lang.toUpperCase(),
       "Fecha de Registro": new Date().toLocaleString()
     };
@@ -288,8 +287,8 @@ function initLeadForm() {
       trackAnalyticsEvent('generate_lead', {
         event_category: 'Lead Capture',
         event_label: storeName,
-        store_type: storeType,
         devices_count: devices,
+        plan_type: 'always_free',
         currency: 'EUR',
         value: 1.0
       });
@@ -298,7 +297,7 @@ function initLeadForm() {
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           'send_to': 'AW-952948429/JXh1CLzT_ukcEM2ts8YD',
-          'event_category': 'Beta Sign Up',
+          'event_category': 'Sign Up',
           'event_label': storeName,
           'value': 1.0,
           'currency': 'EUR'
