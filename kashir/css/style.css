@@ -900,9 +900,11 @@ body {
 }
 
 /* Lead Capture Form Section */
-.lead-section {
+.lead-section,
+#lead-capture-form {
   padding: 4.5rem 0;
   background: var(--bg-surface);
+  scroll-margin-top: 90px;
 }
 
 .form-wrapper {
@@ -915,6 +917,7 @@ body {
   box-shadow: var(--shadow-lg);
   position: relative;
   transition: box-shadow var(--transition-normal);
+  scroll-margin-top: 90px;
 }
 
 @media (min-width: 640px) {
@@ -1037,7 +1040,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .modal-content {

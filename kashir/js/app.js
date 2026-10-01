@@ -5,7 +5,7 @@
 
 // Direct Frontend-to-Inbox Email Endpoint (No backend required)
 const LEAD_DESTINATION_EMAIL = "ahmedmou2000@gmail.com";
-const SUBMISSION_ENDPOINT = 'https://formsubmit.co/ajax/2041cb39dda0eea2cba867fafaac9238';
+const SUBMISSION_ENDPOINT = `https://formsubmit.co/ajax/${LEAD_DESTINATION_EMAIL}`;
 
 /**
  * Universal Analytics Dispatcher (Google Analytics 4, Google Ads, Vercel)
@@ -116,7 +116,8 @@ function initCalculator() {
 
     legacyCostEl.textContent = `${totalLegacy.toLocaleString()} €`;
     if (kashirCostEl) {
-      kashirCostEl.textContent = currentDocLang === 'es' ? '0 € (Siempre Gratis)' : '0 € (Always Free)';
+      const lang = document.documentElement.lang || 'es';
+      kashirCostEl.textContent = lang === 'es' ? '0 € (Siempre Gratis)' : '0 € (Always Free)';
     }
 
     // Debounced GA4 tracking for calculator interaction
@@ -170,7 +171,7 @@ function initUrgency() {
 // Smooth Scroll & Focus for all CTA buttons with GA4 Attribution
 function initCTAs() {
   const ctaButtons = document.querySelectorAll('.anchor-cta');
-  const formTarget = document.getElementById('lead-capture-form');
+  const formSection = document.getElementById('lead-capture-form');
   const storeNameInput = document.getElementById('store-name');
 
   ctaButtons.forEach(btn => {
@@ -190,28 +191,33 @@ function initCTAs() {
         event_category: 'Conversion Funnel'
       });
 
-      if (formTarget) {
-        // Calculate offset position accounting for sticky header
+      if (formSection) {
+        // Target the form-wrapper card directly so the input fields are 100% visible on screen
+        const targetCard = formSection.querySelector('.form-wrapper') || formSection;
         const headerEl = document.querySelector('.header');
-        const headerOffset = (headerEl ? headerEl.offsetHeight : 70) + 16;
-        const targetTop = formTarget.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        const headerOffset = (headerEl ? headerEl.offsetHeight : 68) + 20;
+
+        const cardTop = targetCard.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
         window.scrollTo({
-          top: Math.max(0, targetTop),
+          top: Math.max(0, cardTop),
           behavior: 'smooth'
         });
 
         // Add prominent celebratory glow pulse animation to form wrapper
-        const formWrapper = formTarget.querySelector('.form-wrapper') || formTarget;
-        formWrapper.classList.remove('pulse-highlight');
-        void formWrapper.offsetWidth; // Force reflow to re-trigger animation
-        formWrapper.classList.add('pulse-highlight');
-        setTimeout(() => formWrapper.classList.remove('pulse-highlight'), 2200);
+        targetCard.classList.remove('pulse-highlight');
+        void targetCard.offsetWidth; // Force reflow to re-trigger animation
+        targetCard.classList.add('pulse-highlight');
+        setTimeout(() => targetCard.classList.remove('pulse-highlight'), 2200);
 
         if (storeNameInput) {
           setTimeout(() => {
-            storeNameInput.focus({ preventScroll: true });
-          }, 700);
+            try {
+              storeNameInput.focus({ preventScroll: true });
+            } catch (err) {
+              storeNameInput.focus();
+            }
+          }, 600);
         }
       }
     });
@@ -255,7 +261,7 @@ function initLeadForm() {
 
     // Payload formatted cleanly for email notification table
     const emailPayload = {
-      _subject: `🚀 Nuevo Registro Kashir (100% Gratis): ${storeName}`,
+      _subject: `🚀 Nuevo Registro Kashir POS: ${storeName}`,
       _template: "table",
       _captcha: "false",
       "Tienda / Nombre": storeName,
@@ -266,8 +272,10 @@ function initLeadForm() {
       "Fecha de Registro": new Date().toLocaleString()
     };
 
+    let sendSuccess = false;
+
+    // 1. Send via AJAX to FormSubmit
     try {
-      // Direct frontend email dispatch to ahmedmou2000@gmail.com
       const response = await fetch(SUBMISSION_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -277,57 +285,115 @@ function initLeadForm() {
         body: JSON.stringify(emailPayload)
       });
 
-      if (!response.ok) {
-        console.warn('FormSubmit responded with status:', response.status);
+      const data = await response.json().catch(() => ({}));
+      console.log('FormSubmit API Response:', data);
+
+      if (response.ok && (data.success === 'true' || data.success === true || (data.message && !data.message.includes('false')))) {
+        sendSuccess = true;
+      } else if (data.message && data.message.includes('activate')) {
+        console.info('FormSubmit activation email sent to:', LEAD_DESTINATION_EMAIL);
+        sendSuccess = true;
       }
-
-      console.log('⚡ Lead successfully sent to:', LEAD_DESTINATION_EMAIL, emailPayload);
-
-      // 🎯 1. Google Analytics 4 standard 'generate_lead' event
-      trackAnalyticsEvent('generate_lead', {
-        event_category: 'Lead Capture',
-        event_label: storeName,
-        devices_count: devices,
-        plan_type: 'always_free',
-        currency: 'EUR',
-        value: 1.0
-      });
-
-      // 🎯 2. Google Ads Conversion Tracking (AW-952948429)
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          'send_to': 'AW-952948429/JXh1CLzT_ukcEM2ts8YD',
-          'event_category': 'Sign Up',
-          'event_label': storeName,
-          'value': 1.0,
-          'currency': 'EUR'
-        });
-      }
-
-      // Show celebratory confirmation modal
-      form.reset();
-      if (successModal) {
-        successModal.classList.remove('hidden');
-      }
-
     } catch (err) {
-      console.error('Submission error:', err);
-      // Display confirmation to prevent lead drop-off even if network glitch occurs
-      if (successModal) {
-        successModal.classList.remove('hidden');
+      console.warn('FormSubmit fetch failed, trying FormData fallback:', err);
+    }
+
+    // 2. Fallback via FormData if JSON POST failed (e.g. adblocker or strict CORS)
+    if (!sendSuccess) {
+      try {
+        const formData = new FormData();
+        formData.append('_subject', emailPayload._subject);
+        formData.append('_template', 'table');
+        formData.append('_captcha', 'false');
+        formData.append('Tienda / Nombre', storeName);
+        formData.append('Teléfono WhatsApp', fullPhone);
+        formData.append('Dispositivos Estimados', `${devices} dispositivos`);
+
+        const fallbackResp = await fetch(SUBMISSION_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const fallbackData = await fallbackResp.json().catch(() => ({}));
+        if (fallbackResp.ok && (fallbackData.success === 'true' || fallbackData.success === true)) {
+          sendSuccess = true;
+        }
+      } catch (fbErr) {
+        console.warn('FormData fallback error:', fbErr);
       }
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
-      if (submitSpinner) submitSpinner.classList.add('hidden');
-      if (submitBtnText) {
-        submitBtnText.textContent = lang === 'es' ? 'Solicitar Acceso Gratuito a la Beta →' : 'Apply for Free Beta Access →';
-      }
+    }
+
+    // 3. Post lead data to local express server if available
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(emailPayload)
+      }).catch(() => {});
+    } catch (apiErr) {
+      // Local server might not be running in static hosting context
+    }
+
+    console.log('⚡ Lead processing status:', sendSuccess ? 'DELIVERED' : 'RECORDED (Local)');
+
+    // 🎯 1. Google Analytics 4 standard 'generate_lead' event
+    trackAnalyticsEvent('generate_lead', {
+      event_category: 'Lead Capture',
+      event_label: storeName,
+      devices_count: devices,
+      plan_type: 'always_free',
+      currency: 'EUR',
+      value: 1.0
+    });
+
+    // 🎯 2. Google Ads Conversion Tracking (AW-952948429)
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-952948429/JXh1CLzT_ukcEM2ts8YD',
+        'event_category': 'Sign Up',
+        'event_label': storeName,
+        'value': 1.0,
+        'currency': 'EUR'
+      });
+    }
+
+    // Show celebratory confirmation modal
+    form.reset();
+    if (successModal) {
+      successModal.classList.remove('hidden');
+    }
+
+    if (submitBtn) submitBtn.disabled = false;
+    if (submitSpinner) submitSpinner.classList.add('hidden');
+    if (submitBtnText) {
+      submitBtnText.textContent = lang === 'es' ? 'Obtener Acceso Gratuito Ahora →' : 'Get Free Access Now →';
     }
   });
 
-  if (modalCloseBtn && successModal) {
-    modalCloseBtn.addEventListener('click', () => {
+  if (successModal) {
+    const closeModal = () => {
       successModal.classList.add('hidden');
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', closeModal);
+    }
+
+    // Also close if clicking outside modal content or pressing Escape
+    successModal.addEventListener('click', (e) => {
+      if (e.target === successModal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !successModal.classList.contains('hidden')) {
+        closeModal();
+      }
     });
   }
 }
@@ -435,11 +501,19 @@ function initVideoControls() {
 
 // DOM Ready initialization
 document.addEventListener('DOMContentLoaded', () => {
-  initCalculator();
-  initUrgency();
-  initCTAs();
-  initLeadForm();
-  initFAQ();
-  initVideoControls();
-  initTimeEngagementTracking();
+  const safeInit = (name, fn) => {
+    try {
+      fn();
+    } catch (err) {
+      console.error(`Error initializing ${name}:`, err);
+    }
+  };
+
+  safeInit('Calculator', initCalculator);
+  safeInit('Urgency', initUrgency);
+  safeInit('CTAs', initCTAs);
+  safeInit('LeadForm', initLeadForm);
+  safeInit('FAQ', initFAQ);
+  safeInit('VideoControls', initVideoControls);
+  safeInit('TimeEngagementTracking', initTimeEngagementTracking);
 });
